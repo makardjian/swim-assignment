@@ -8,11 +8,8 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
-  leftContent: {
+  contentSection: {
     display: 'flex',
-    alignItems: 'center',
-  },
-  rightContent: {
     alignItems: 'center',
   },
   shortlyLogo: {
