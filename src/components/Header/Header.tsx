@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '@mui/material';
 import LeftHeaderItems from './LeftHeaderItems';
 import HeaderItem from './HeaderItem';
+import Button from '../common/Button';
 import logo from '../../static/images/logo.svg';
 import useStyles from './Header.styles';
 import { rightSideHeaderItem } from './headerItems';
@@ -22,21 +22,7 @@ const Header = () => {
         </div>
         <div className={classes.contentSection}>
           <HeaderItem text={rightSideHeaderItem} />
-          <Button
-            variant='contained'
-            sx={{
-              backgroundColor: Colors.primary['@cyan'],
-              borderRadius: '20px',
-              fontFamily: 'Poppins',
-              textTransform: 'capitalize',
-              fontWeight: '900',
-              '&:hover': {
-                backgroundColor: Colors.primary.derivatives['@lightCyan'],
-              },
-            }}
-          >
-            Sign Up
-          </Button>
+          <Button text='Sign Up' />
         </div>
       </div>
     </div>
