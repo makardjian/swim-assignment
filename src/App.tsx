@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import LandingPageTop from './components/LandingPageTop/LandingPageTop';
+import LandingPageMiddle from './components/LandingPageMiddle/LandingPageMiddle';
 import useStyles from './App.styles';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <div className={classes.appContentContainer}>
         <Header />
         <LandingPageTop />
+        <LandingPageMiddle />
       </div>
     </div>
   );
