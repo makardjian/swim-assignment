@@ -4,9 +4,13 @@ import Colors from '../../Colors';
 
 const useStyles = makeStyles({
   item: {
-    color: Colors['@gray'],
+    color: Colors.neutral['@grayishViolet'],
     fontWeight: '700',
     paddingRight: 25,
+    '&:hover': {
+      cursor: 'pointer',
+      color: Colors.neutral['@veryDarkViolet:'],
+    },
   },
 });
 

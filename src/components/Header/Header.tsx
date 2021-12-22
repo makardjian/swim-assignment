@@ -24,7 +24,16 @@ const Header = () => {
           <HeaderItem text={rightSideHeaderItem} />
           <Button
             variant='contained'
-            sx={{ backgroundColor: Colors['@cyan'], borderRadius: '20px' }}
+            sx={{
+              backgroundColor: Colors.primary['@cyan'],
+              borderRadius: '20px',
+              fontFamily: 'Poppins',
+              textTransform: 'capitalize',
+              fontWeight: '900',
+              '&:hover': {
+                backgroundColor: Colors.primary.derivatives['@lightCyan'],
+              },
+            }}
           >
             Sign Up
           </Button>
