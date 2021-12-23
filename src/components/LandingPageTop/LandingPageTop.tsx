@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 import Button from '../common/Button';
 import illustrationWorking from '../../static/images/illustration-working.svg';
-import Colors from '../../Colors';
+import Colors from '../../styles/Colors';
 import {
   MAIN_HEADER_TEXT,
   SUB_HEADER_TEXT,

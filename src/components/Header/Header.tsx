@@ -5,7 +5,6 @@ import Button from '../common/Button';
 import logo from '../../static/images/logo.svg';
 import useStyles from './Header.styles';
 import { rightSideHeaderItem } from './headerItems';
-import Colors from '../../Colors';
 
 const Header = () => {
   const classes = useStyles();

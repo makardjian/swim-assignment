@@ -1,9 +1,12 @@
-import React from 'react';
 import { makeStyles } from '@mui/styles';
+import Colors from './styles/Colors';
+
+const white = Colors.background['@white'];
+const solitude = Colors.background['@solitude'];
 
 const useStyles = makeStyles({
   appRoot: {
-    backgroundColor: 'white',
+    background: `linear-gradient(to bottom, ${white} 0%, ${white} 50%, ${solitude} 50%, ${solitude} 50%)`,
     minHeight: '100vh',
     justifyContent: 'center',
     display: 'flex',

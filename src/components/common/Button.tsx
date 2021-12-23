@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button as MUIButton } from '@mui/material';
-import Colors from '../../Colors';
+import Colors from '../../styles/Colors';
 
 type ButtonProps = {
   text: string;
