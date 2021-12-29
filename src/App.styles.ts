@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   appRoot: {
     background: `linear-gradient(to bottom, ${white} 0%, ${white} 50%, ${solitude} 50%, ${solitude} 50%)`,
     minHeight: '100vh',
+    minWidth: '950px',
     justifyContent: 'center',
     display: 'flex',
   },

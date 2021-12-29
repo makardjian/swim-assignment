@@ -13,13 +13,6 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     flexDirection: 'column',
   },
-  card: {
-    position: 'relative',
-  },
-  inputBackgroundImage: {
-    borderRadius: '10px',
-    backgroundColor: Colors.primary['@darkViolet'],
-  },
   cardMediaContainer: {
     display: 'flex',
     height: '100%',
@@ -35,14 +28,16 @@ const LandingPageMiddle = () => {
       <Card
         sx={{
           position: 'relative',
-          height: '200px',
+          marginTop: '-650px',
           borderRadius: '10px',
         }}
       >
         <CardMedia
+          component='img'
           image={inputBackgroundImage}
           sx={{
-            height: '100%',
+            height: 'auto',
+            width: '100%',
             backgroundColor: Colors.primary['@darkViolet'],
           }}
         />
@@ -61,12 +56,6 @@ const LandingPageMiddle = () => {
           </div>
         </Box>
       </Card>
-
-      <img
-        className={styles.inputBackgroundImage}
-        src={inputBackgroundImage}
-        alt='input_background_img'
-      />
     </div>
   );
 };
