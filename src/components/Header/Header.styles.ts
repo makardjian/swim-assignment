@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   },
   contentSection: {
     display: 'flex',
+    alignItems: 'center',
   },
   shortlyLogo: {
     paddingRight: '20px',

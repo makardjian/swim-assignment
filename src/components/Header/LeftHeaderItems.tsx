@@ -7,6 +7,7 @@ const useStyles = makeStyles({
   leftHeaderItemsContnentContainer: {
     display: 'flex',
     paddingLeft: 20,
+    alignItems: 'center',
   },
 });
 
