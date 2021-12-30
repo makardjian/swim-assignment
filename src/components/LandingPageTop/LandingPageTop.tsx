@@ -15,7 +15,9 @@ const useStyles = makeStyles({
     backgroundColor: 'white',
   },
   contentContainer: {
-    margin: '0px 200px',
+    margin: '0px auto',
+    maxWidth: '1440px',
+    minWidth: '700px',
     display: 'flex',
     justifyContent: 'space-between',
   },
@@ -40,9 +42,8 @@ const useStyles = makeStyles({
   },
   imageContainer: {
     width: '50%',
-    overflow: 'contained',
   },
-  '& img': {
+  image: {
     maxWidth: '100%',
     maxHeight: '100%',
     objectFit: 'contain',
@@ -64,7 +65,11 @@ const LandingPageTop = () => {
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <img src={illustrationWorking} alt='illustrationworking' />
+          <img
+            src={illustrationWorking}
+            alt='illustrationworking'
+            className={styles.image}
+          />
         </div>
       </div>
     </section>

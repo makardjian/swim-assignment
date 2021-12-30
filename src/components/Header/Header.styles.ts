@@ -8,8 +8,10 @@ const useStyles = makeStyles({
   contentContainer: {
     display: 'flex',
     justifyContent: 'space-between',
+    maxWidth: '1440px',
+    minWidth: '700px',
     padding: '40px 16px 0px',
-    margin: '0px 200px',
+    margin: '0px auto',
   },
   contentSection: {
     display: 'flex',
