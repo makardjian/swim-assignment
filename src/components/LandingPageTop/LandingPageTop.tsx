@@ -11,61 +11,63 @@ import {
 
 const useStyles = makeStyles({
   container: {
+    padding: '75px 16px 150px',
+    backgroundColor: 'white',
+  },
+  contentContainer: {
+    margin: '0px 200px',
     display: 'flex',
     justifyContent: 'space-between',
-    paddingTop: '35px',
   },
   textAndButtonContainer: {
     width: '50%',
   },
   mainHeaderText: {
     fontSize: '72px',
-    color: Colors.neutral['@veryDarkViolet:'],
     fontWeight: '900',
     fontFamily: 'sans-serif',
+    color: Colors.neutral['@veryDarkViolet:'],
   },
   subHeaderTextContainer: {
     width: '80%',
   },
   subHeaderText: {
-    color: Colors.neutral['@grayishViolet'],
     fontWeight: '700',
+    color: Colors.neutral['@grayishViolet'],
   },
   buttonContainer: {
     padding: '30px 0px',
   },
   imageContainer: {
-    marginTop: '-75px',
-    marginRight: '-75px',
     width: '50%',
+    overflow: 'contained',
   },
-  image: {
-    width: '130%',
-    height: '100%',
+  '& img': {
+    maxWidth: '100%',
+    maxHeight: '100%',
+    objectFit: 'contain',
   },
 });
 
 const LandingPageTop = () => {
   const styles = useStyles();
   return (
-    <div className={styles.container}>
-      <div className={styles.textAndButtonContainer}>
-        <div className={styles.mainHeaderText}>{MAIN_HEADER_TEXT}</div>
-        <div className={styles.subHeaderTextContainer}>
-          <div className={styles.subHeaderText}>{SUB_HEADER_TEXT}</div>
+    <section className={styles.container}>
+      <div className={styles.contentContainer}>
+        <div className={styles.textAndButtonContainer}>
+          <div className={styles.mainHeaderText}>{MAIN_HEADER_TEXT}</div>
+          <div className={styles.subHeaderTextContainer}>
+            <div className={styles.subHeaderText}>{SUB_HEADER_TEXT}</div>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button text={BUTTON_TEXT} size='large' />
+          </div>
         </div>
-        <div className={styles.buttonContainer}>
-          <Button text={BUTTON_TEXT} size='large' />
+        <div className={styles.imageContainer}>
+          <img src={illustrationWorking} alt='illustrationworking' />
         </div>
       </div>
-      <div className={styles.imageContainer}>
-        <img
-          className={styles.image}
-          src={illustrationWorking}
-          alt='illustrationworking'
-        />
-      </div>
-    </div>
+    </section>
   );
 };
 

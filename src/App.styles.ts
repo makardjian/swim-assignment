@@ -1,22 +1,19 @@
 import { makeStyles } from '@mui/styles';
 import Colors from './styles/Colors';
 
-const white = Colors.background['@white'];
 const solitude = Colors.background['@solitude'];
 
 const useStyles = makeStyles({
   appRoot: {
-    background: `linear-gradient(to bottom, ${white} 0%, ${white} 50%, ${solitude} 50%, ${solitude} 50%)`,
+    background: solitude,
     minHeight: '100vh',
-    minWidth: '950px',
-    justifyContent: 'center',
-    display: 'flex',
+    // minWidth: '950px',
+    // justifyContent: 'center',
+    // display: 'flex',
   },
   appContentContainer: {
-    display: 'flex',
+    // display: 'flex',
     flexDirection: 'column',
-    padding: '50px 0px',
-    width: '75%',
   },
 });
 
