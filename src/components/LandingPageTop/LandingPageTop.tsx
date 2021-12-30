@@ -11,7 +11,7 @@ import {
 
 const useStyles = makeStyles({
   container: {
-    padding: '75px 16px 150px',
+    padding: '75px 64px 150px',
     backgroundColor: Colors.background['@white'],
   },
   contentContainer: {

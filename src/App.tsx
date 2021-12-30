@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './components/Navigation/Navigation';
 import LandingPageTop from './components/LandingPageTop/LandingPageTop';
-import LandingPageMiddle from './components/LandingPageMiddle/LandingPageMiddle';
+import LinkShortener from './components/LinkShortner/LinkShortener';
 import useStyles from './App.styles';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <div className={classes.appRoot}>
       <Navigation />
       <LandingPageTop />
-      <LandingPageMiddle />
+      <LinkShortener />
     </div>
   );
 }

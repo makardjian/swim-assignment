@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     maxWidth: '1440px',
     minWidth: '700px',
     margin: '0px auto',
-    padding: '40px 16px 0px',
+    padding: '40px 64px 0px',
   },
   navSection: {
     display: 'flex',

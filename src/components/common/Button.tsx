@@ -6,20 +6,25 @@ type ButtonProps = {
   text: string;
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
+  shape?: 'square' | 'oval';
 };
 
-const Button = ({ text, size, fullWidth }: ButtonProps) => {
+const Button = ({ text, size, fullWidth, shape = 'oval' }: ButtonProps) => {
+  const shapeIsSquare = shape === 'square';
   return (
     <MUIButton
       variant='contained'
       size={size}
       fullWidth={fullWidth}
       sx={{
-        backgroundColor: Colors.primary['@cyan'],
-        borderRadius: '20px',
+        whiteSpace: 'nowrap',
+        margin: '0px auto',
+        padding: `${shapeIsSquare ? '15px 35px' : 'inheret'}`,
+        borderRadius: `${shapeIsSquare ? '10px' : '20px'}`,
         fontFamily: 'Poppins',
-        textTransform: 'capitalize',
         fontWeight: '900',
+        textTransform: 'capitalize',
+        backgroundColor: Colors.primary['@cyan'],
         '&:hover': {
           backgroundColor: Colors.primary.derivatives['@lightCyan'],
         },
