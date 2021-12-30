@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardMedia, Box } from '@mui/material';
 import inputBackgroundImage from '../../static/images/bg-shorten-desktop.svg';
-//
 import { makeStyles } from '@mui/styles';
 import Colors from '../../styles/Colors';
 

@@ -12,14 +12,14 @@ import {
 const useStyles = makeStyles({
   container: {
     padding: '75px 16px 150px',
-    backgroundColor: 'white',
+    backgroundColor: Colors.background['@white'],
   },
   contentContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
     margin: '0px auto',
     maxWidth: '1440px',
     minWidth: '700px',
-    display: 'flex',
-    justifyContent: 'space-between',
   },
   textAndButtonContainer: {
     width: '50%',
@@ -51,24 +51,24 @@ const useStyles = makeStyles({
 });
 
 const LandingPageTop = () => {
-  const styles = useStyles();
+  const classes = useStyles();
   return (
-    <section className={styles.container}>
-      <div className={styles.contentContainer}>
-        <div className={styles.textAndButtonContainer}>
-          <div className={styles.mainHeaderText}>{MAIN_HEADER_TEXT}</div>
-          <div className={styles.subHeaderTextContainer}>
-            <div className={styles.subHeaderText}>{SUB_HEADER_TEXT}</div>
+    <section className={classes.container}>
+      <div className={classes.contentContainer}>
+        <div className={classes.textAndButtonContainer}>
+          <div className={classes.mainHeaderText}>{MAIN_HEADER_TEXT}</div>
+          <div className={classes.subHeaderTextContainer}>
+            <div className={classes.subHeaderText}>{SUB_HEADER_TEXT}</div>
           </div>
-          <div className={styles.buttonContainer}>
+          <div className={classes.buttonContainer}>
             <Button text={BUTTON_TEXT} size='large' />
           </div>
         </div>
-        <div className={styles.imageContainer}>
+        <div className={classes.imageContainer}>
           <img
             src={illustrationWorking}
             alt='illustrationworking'
-            className={styles.image}
+            className={classes.image}
           />
         </div>
       </div>
