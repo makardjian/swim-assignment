@@ -1,14 +1,16 @@
 import React from 'react';
-import Header from './components/Header/Header';
+import Navigation from './components/Navigation/Navigation';
+import LandingPageTop from './components/LandingPageTop/LandingPageTop';
+import LinkShortener from './components/LinkShortner/LinkShortener';
 import useStyles from './App.styles';
 
 function App() {
   const classes = useStyles();
   return (
     <div className={classes.appRoot}>
-      <div className={classes.appContentContainer}>
-        <Header />
-      </div>
+      <Navigation />
+      <LandingPageTop />
+      <LinkShortener />
     </div>
   );
 }

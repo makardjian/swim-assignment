@@ -15,6 +15,10 @@ const Colors = {
     '@veryDarkBlue': 'hsl(255, 11%, 22%)',
     '@veryDarkViolet:': 'hsl(260, 8%, 14%)',
   },
+  background: {
+    '@white': 'hsl(0, 0%, 100%)',
+    '@solitude': 'hsl(225, 33%, 95%)',
+  },
 };
 
 export default Colors;

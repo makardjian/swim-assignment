@@ -1,18 +1,10 @@
-import React from 'react';
 import { makeStyles } from '@mui/styles';
+import Colors from './styles/Colors';
 
 const useStyles = makeStyles({
   appRoot: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.background['@solitude'],
     minHeight: '100vh',
-    justifyContent: 'center',
-    display: 'flex',
-  },
-  appContentContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '50px 0px',
-    width: '75%',
   },
 });
 
