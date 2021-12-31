@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardMedia, Box, TextField } from '@mui/material';
 import Button from '../common/Button';
 import inputBackgroundImage from '../../static/images/bg-shorten-desktop.svg';
@@ -18,8 +18,25 @@ const useStyles = makeStyles({
   },
 });
 
-const LinkShortener = () => {
+type LinkShortenerProps = {
+  generateShortenedLink: (originalUrl: string) => void;
+};
+
+const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
   const styles = useStyles();
+  const [inputValue, setInputValue] = useState('');
+
+  const onInputChange = (inputVal: string) => {
+    setInputValue(inputVal);
+  };
+
+  const onButtonClick = () => {
+    generateShortenedLink(inputValue);
+    setInputValue('');
+  };
+
+  console.log({ inputValue });
+
   return (
     <div className={styles.container}>
       <Card
@@ -61,13 +78,20 @@ const LinkShortener = () => {
               variant='outlined'
               autoComplete='off'
               fullWidth
+              value={inputValue}
+              onChange={(e) => onInputChange(e?.target?.value)}
               sx={{
                 backgroundColor: 'white',
                 borderRadius: '10px',
                 width: '80%',
               }}
             />
-            <Button text='Shorten it!' size='large' shape='square' />
+            <Button
+              text='Shorten it!'
+              size='large'
+              shape='square'
+              onClick={onButtonClick}
+            />
           </div>
         </Box>
       </Card>

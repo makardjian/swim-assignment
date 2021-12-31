@@ -4,18 +4,26 @@ import Colors from '../../styles/Colors';
 
 type ButtonProps = {
   text: string;
+  onClick?: () => void;
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   shape?: 'square' | 'oval';
 };
 
-const Button = ({ text, size, fullWidth, shape = 'oval' }: ButtonProps) => {
+const Button = ({
+  text,
+  onClick,
+  size,
+  fullWidth,
+  shape = 'oval',
+}: ButtonProps) => {
   const shapeIsSquare = shape === 'square';
   return (
     <MUIButton
       variant='contained'
       size={size}
       fullWidth={fullWidth}
+      onClick={onClick}
       sx={{
         whiteSpace: 'nowrap',
         margin: '0px auto',
