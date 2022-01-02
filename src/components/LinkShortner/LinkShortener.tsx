@@ -6,10 +6,7 @@ import { makeStyles } from '@mui/styles';
 import Colors from '../../styles/Colors';
 
 const useStyles = makeStyles({
-  container: {
-    padding: '100px 64px 150px',
-  },
-  linkShortenerContainer: {
+  inputAndButtonContainer: {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -38,18 +35,18 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
   console.log({ inputValue });
 
   return (
-    <div className={styles.container}>
+    <div>
       <Card
         sx={{
           display: 'flex',
           justifyContent: 'space-around',
           margin: '0px auto',
           maxWidth: '1440px',
+          width: '100%',
           minWidth: '700px',
           alignItems: 'center',
           position: 'relative',
           borderRadius: '10px',
-          bottom: 200,
         }}
       >
         <CardMedia
@@ -71,7 +68,7 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
             color: 'white',
           }}
         >
-          <div className={styles.linkShortenerContainer}>
+          <div className={styles.inputAndButtonContainer}>
             <TextField
               id='basic'
               label='Shorten a link here...'

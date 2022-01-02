@@ -1,8 +1,10 @@
+import type { Link } from '../components/Links/Link.type';
+
 const API_BASE = 'https://api.shrtco.de/v2/shorten';
 
 type ApiResponse = {
   ok: boolean;
-  result?: {
+  result: {
     code: string;
     full_share_link: string;
     full_short_link: string;
@@ -18,22 +20,20 @@ type ApiResponse = {
   error_code?: number;
 };
 
-export type TransformedApiResponse = {
-  shortLink?: string;
-  errorMessage?: string;
-};
-
 export const fetchShortenedLink = async (
   originalUrl: string
-): Promise<TransformedApiResponse> => {
+): Promise<Link> => {
   const REQUEST_URL = `${API_BASE}?url=${originalUrl}`;
-  console.log({ REQUEST_URL });
   try {
     const response = await fetch(REQUEST_URL);
     const responseData: ApiResponse = await response.json();
     if (responseData.ok) {
+      const {
+        result: { short_link, original_link },
+      } = responseData;
       return {
-        shortLink: responseData?.result?.short_link,
+        shortLink: short_link,
+        originalLink: original_link,
       };
     }
     throw new Error(responseData.error);
