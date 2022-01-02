@@ -8,6 +8,7 @@ type ButtonProps = {
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   shape?: 'square' | 'oval';
+  customStyles?: any;
 };
 
 const Button = ({
@@ -16,6 +17,7 @@ const Button = ({
   size,
   fullWidth,
   shape = 'oval',
+  customStyles,
 }: ButtonProps) => {
   const shapeIsSquare = shape === 'square';
   return (
@@ -36,6 +38,7 @@ const Button = ({
         '&:hover': {
           backgroundColor: Colors.primary.derivatives['@lightCyan'],
         },
+        ...customStyles,
       }}
     >
       {text}

@@ -6,7 +6,9 @@ import type { Link as LinkType } from './Link.type';
 const useStyles = makeStyles({
   linksContainer: {
     display: 'flex',
-    justifyContent: 'center',
+    width: '100%',
+    maxWidth: '1440px',
+    margin: '0px auto',
   },
 });
 
