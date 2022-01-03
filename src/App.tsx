@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import LandingPageTop from './components/LandingPageTop/LandingPageTop';
 import LinkShortener from './components/LinkShortner/LinkShortener';
 import Links from './components/Links/Links';
+import LandingPageBottom from './components/LandingPageBottom/LandingPageBottom';
 import type { Link } from './components/Links/Link.type';
 import { fetchShortenedLink } from './api/fetchShortenedLink';
 import useStyles from './App.styles';
@@ -57,6 +58,7 @@ function App() {
         <LinkShortener generateShortenedLink={generateShortenedLink} />
         <Links links={links} onCopyLink={onCopyLink} />
       </div>
+      <LandingPageBottom />
     </div>
   );
 }

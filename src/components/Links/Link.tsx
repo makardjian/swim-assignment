@@ -19,6 +19,7 @@ const useStyles = makeStyles({
   },
   originalLink: {
     paddingLeft: '50px',
+    color: Colors.neutral['@veryDarkViolet:'],
   },
   shortLinkAndButtonContainer: {
     display: 'flex',
@@ -27,7 +28,10 @@ const useStyles = makeStyles({
     paddingRight: '50px',
     paddingLeft: '50px',
     color: Colors.primary['@cyan'],
-    fontWeight: 900,
+    fontWeight: 700,
+  },
+  shortLink: {
+    fontWeight: 500,
   },
   buttonContainer: {
     paddingLeft: '30px',
@@ -47,7 +51,7 @@ const Link = ({
     <div className={styles.fullLinkContainer}>
       <div className={styles.originalLink}>{link.originalLink}</div>
       <div className={styles.shortLinkAndButtonContainer}>
-        <span>{link.shortLink}</span>
+        <span className={styles.shortLink}>{link.shortLink}</span>
         <div className={styles.buttonContainer}>
           <CopyToClipboard
             text={link.shortLink}

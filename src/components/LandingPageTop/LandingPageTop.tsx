@@ -26,15 +26,14 @@ const useStyles = makeStyles({
   },
   mainHeaderText: {
     fontSize: '72px',
-    fontWeight: '900',
-    fontFamily: 'sans-serif',
+    fontWeight: 700,
     color: Colors.neutral['@veryDarkViolet:'],
   },
   subHeaderTextContainer: {
     width: '80%',
   },
   subHeaderText: {
-    fontWeight: '700',
+    fontWeight: 500,
     color: Colors.neutral['@grayishViolet'],
   },
   buttonContainer: {

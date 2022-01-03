@@ -31,8 +31,7 @@ const Button = ({
         margin: '0px auto',
         padding: `${shapeIsSquare ? '15px 35px' : 'inheret'}`,
         borderRadius: `${shapeIsSquare ? '10px' : '20px'}`,
-        fontFamily: 'Poppins',
-        fontWeight: '900',
+        fontWeight: '700',
         textTransform: 'capitalize',
         backgroundColor: Colors.primary['@cyan'],
         '&:hover': {

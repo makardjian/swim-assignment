@@ -5,7 +5,7 @@ import Colors from '../../styles/Colors';
 const useStyles = makeStyles({
   item: {
     color: Colors.neutral['@grayishViolet'],
-    fontWeight: '700',
+    fontWeight: 700,
     paddingRight: '25px',
     '&:hover': {
       cursor: 'pointer',
