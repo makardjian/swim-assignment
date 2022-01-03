@@ -12,12 +12,17 @@ const useStyles = makeStyles({
   },
 });
 
-const Links = ({ links }: { links: any[] }) => {
+type LinksProps = {
+  links: LinkType[];
+  onCopyLink: (id: string) => void;
+};
+
+const Links = ({ links, onCopyLink }: LinksProps) => {
   const styles = useStyles();
   return (
     <div className={styles.linksContainer}>
-      {links.map((link: LinkType, index: number) => {
-        return <Link link={link} key={index} />;
+      {links.map((link: LinkType) => {
+        return <Link link={link} key={link.id} onCopyLink={onCopyLink} />;
       })}
     </div>
   );

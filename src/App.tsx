@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import LandingPageTop from './components/LandingPageTop/LandingPageTop';
 import LinkShortener from './components/LinkShortner/LinkShortener';
@@ -26,17 +26,35 @@ function App() {
     }
   };
 
+  const onCopyLink = (id: string) => {
+    const newLinks = links.map((link) => {
+      if (link.id === id) {
+        return {
+          ...link,
+          isCopied: true,
+        };
+      } else {
+        return {
+          ...link,
+          isCopied: false,
+        };
+      }
+    });
+    setLinks(newLinks);
+  };
+
   console.log({
     links,
     linkGenerationError,
   });
+
   return (
     <div className={classes.appRoot}>
       <Navigation />
       <LandingPageTop />
       <div className={classes.linkShortenerAndLinksContainer}>
         <LinkShortener generateShortenedLink={generateShortenedLink} />
-        <Links links={links} />
+        <Links links={links} onCopyLink={onCopyLink} />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import type { Link } from '../components/Links/Link.type';
+import { v4 as uuid } from 'uuid';
 
 const API_BASE = 'https://api.shrtco.de/v2/shorten';
 
@@ -34,12 +35,16 @@ export const fetchShortenedLink = async (
       return {
         shortLink: short_link,
         originalLink: original_link,
+        isCopied: false,
+        id: uuid(),
       };
     }
     throw new Error(responseData.error);
   } catch (error: any) {
     return {
       errorMessage: error.message,
+      isCopied: false,
+      id: uuid(),
     };
   }
 };
