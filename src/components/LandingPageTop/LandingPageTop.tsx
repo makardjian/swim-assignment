@@ -34,7 +34,6 @@ const useStyles = makeStyles({
     width: '80%',
   },
   subHeaderText: {
-    fontWeight: 500,
     color: Colors.neutral['@grayishViolet'],
   },
   buttonContainer: {
