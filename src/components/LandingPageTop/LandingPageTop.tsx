@@ -11,7 +11,7 @@ import {
 
 const useStyles = makeStyles({
   container: {
-    padding: '75px 64px 150px',
+    padding: '75px 100px 150px',
     backgroundColor: Colors.background['@white'],
   },
   contentContainer: {
@@ -26,15 +26,15 @@ const useStyles = makeStyles({
   },
   mainHeaderText: {
     fontSize: '72px',
-    fontWeight: '900',
-    fontFamily: 'sans-serif',
-    color: Colors.neutral['@veryDarkViolet:'],
+    fontWeight: 700,
+    letterSpacing: '-2px',
+    color: Colors.neutral['@veryDarkBlue'],
   },
   subHeaderTextContainer: {
     width: '80%',
   },
   subHeaderText: {
-    fontWeight: '700',
+    fontWeight: 500,
     color: Colors.neutral['@grayishViolet'],
   },
   buttonContainer: {

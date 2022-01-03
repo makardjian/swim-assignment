@@ -5,6 +5,14 @@ const useStyles = makeStyles({
   appRoot: {
     backgroundColor: Colors.background['@solitude'],
     minHeight: '100vh',
+    paddingBottom: '400px',
+  },
+  linkShortenerAndLinksContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '-100px auto 0px auto',
+    paddingTop: '0px',
+    padding: '0px 100px 200px 100px',
   },
 });
 

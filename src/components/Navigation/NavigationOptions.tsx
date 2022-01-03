@@ -15,7 +15,7 @@ const NavigationOptions = ({ options }: { options: string[] }) => {
   return (
     <div className={classes.navOptionsContainer}>
       {options.map((option: string) => (
-        <NavItem text={option} />
+        <NavItem text={option} key={option} />
       ))}
     </div>
   );

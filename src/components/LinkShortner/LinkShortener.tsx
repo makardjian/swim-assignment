@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardMedia, Box, TextField } from '@mui/material';
 import Button from '../common/Button';
 import inputBackgroundImage from '../../static/images/bg-shorten-desktop.svg';
@@ -6,10 +6,7 @@ import { makeStyles } from '@mui/styles';
 import Colors from '../../styles/Colors';
 
 const useStyles = makeStyles({
-  container: {
-    padding: '100px 64px 150px',
-  },
-  linkShortenerContainer: {
+  inputAndButtonContainer: {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -18,21 +15,38 @@ const useStyles = makeStyles({
   },
 });
 
-const LinkShortener = () => {
+type LinkShortenerProps = {
+  generateShortenedLink: (originalUrl: string) => void;
+};
+
+const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
   const styles = useStyles();
+  const [inputValue, setInputValue] = useState('');
+
+  const onInputChange = (inputVal: string) => {
+    setInputValue(inputVal);
+  };
+
+  const onButtonClick = () => {
+    generateShortenedLink(inputValue);
+    setInputValue('');
+  };
+
+  console.log({ inputValue });
+
   return (
-    <div className={styles.container}>
+    <div>
       <Card
         sx={{
           display: 'flex',
           justifyContent: 'space-around',
           margin: '0px auto',
           maxWidth: '1440px',
-          minWidth: '700px',
+          width: '100%',
+          minWidth: '900px',
           alignItems: 'center',
           position: 'relative',
           borderRadius: '10px',
-          bottom: 200,
         }}
       >
         <CardMedia
@@ -54,20 +68,29 @@ const LinkShortener = () => {
             color: 'white',
           }}
         >
-          <div className={styles.linkShortenerContainer}>
+          <div className={styles.inputAndButtonContainer}>
             <TextField
               id='basic'
               label='Shorten a link here...'
               variant='outlined'
               autoComplete='off'
               fullWidth
+              value={inputValue}
+              onChange={(e) => onInputChange(e?.target?.value)}
               sx={{
                 backgroundColor: 'white',
                 borderRadius: '10px',
                 width: '80%',
+                margin: '10px',
               }}
             />
-            <Button text='Shorten it!' size='large' shape='square' />
+            <Button
+              text='Shorten it!'
+              size='large'
+              shape='square'
+              onClick={onButtonClick}
+              customStyles={{ margin: '10px' }}
+            />
           </div>
         </Box>
       </Card>
