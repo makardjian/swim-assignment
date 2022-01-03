@@ -6,6 +6,7 @@ import type { Link as LinkType } from './Link.type';
 const useStyles = makeStyles({
   linksContainer: {
     display: 'flex',
+    flexDirection: 'column',
     width: '100%',
     maxWidth: '1440px',
     margin: '0px auto',

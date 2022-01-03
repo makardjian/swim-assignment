@@ -6,10 +6,11 @@ import Links from './components/Links/Links';
 import type { Link } from './components/Links/Link.type';
 import { fetchShortenedLink } from './api/fetchShortenedLink';
 import useStyles from './App.styles';
+import { MOCK_LINKS } from './static/mockData';
 
 function App() {
   const classes = useStyles();
-  const [links, setLinks] = useState([] as Link[]);
+  const [links, setLinks] = useState(MOCK_LINKS as Link[]);
   const [linkGenerationError, setLinkGenerationError] = useState('');
 
   const generateShortenedLink = async (originalUrl: string) => {

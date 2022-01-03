@@ -43,7 +43,7 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
           margin: '0px auto',
           maxWidth: '1440px',
           width: '100%',
-          minWidth: '700px',
+          minWidth: '900px',
           alignItems: 'center',
           position: 'relative',
           borderRadius: '10px',
