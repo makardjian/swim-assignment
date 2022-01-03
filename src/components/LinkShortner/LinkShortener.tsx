@@ -81,6 +81,7 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
                 backgroundColor: 'white',
                 borderRadius: '10px',
                 width: '80%',
+                margin: '10px',
               }}
             />
             <Button
@@ -88,6 +89,7 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
               size='large'
               shape='square'
               onClick={onButtonClick}
+              customStyles={{ margin: '10px' }}
             />
           </div>
         </Box>
