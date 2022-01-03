@@ -27,7 +27,8 @@ const useStyles = makeStyles({
   mainHeaderText: {
     fontSize: '72px',
     fontWeight: 700,
-    color: Colors.neutral['@veryDarkViolet:'],
+    letterSpacing: '-2px',
+    color: Colors.neutral['@veryDarkBlue'],
   },
   subHeaderTextContainer: {
     width: '80%',
