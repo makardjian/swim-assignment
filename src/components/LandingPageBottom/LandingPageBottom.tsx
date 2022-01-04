@@ -40,7 +40,7 @@ const useStyles = makeStyles({
   horizontalColorBar: {
     position: 'absolute',
     right: '0px',
-    top: '196px',
+    top: '160px',
     display: 'block',
     height: '10px',
     width: '100%',

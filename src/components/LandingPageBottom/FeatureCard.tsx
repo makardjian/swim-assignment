@@ -19,13 +19,16 @@ const useStyles = makeStyles({
     marginLeft: '32px',
     display: 'grid',
     placeItems: 'center',
-    width: '80px',
-    height: '80px',
+    width: '75px',
+    height: '75px',
     borderRadius: '50%',
     backgroundColor: Colors.primary['@darkViolet'],
     position: 'relative',
   },
-  icon: {},
+  icon: {
+    height: '45%',
+    width: '45%',
+  },
   cardContainer: (props: FeatureCardProps) => ({
     marginTop: props.feature.marginTop,
   }),
@@ -53,7 +56,7 @@ const FeatureCard = (props: FeatureCardProps) => {
     <div>
       <div className={styles.cardContainer}>
         <div className={styles.iconBall}>
-          <img src={icon} alt={`${title}-icon`} />
+          <img className={styles.icon} src={icon} alt={`${title}-icon`} />
         </div>
         <Card
           sx={{
