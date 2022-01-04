@@ -36,12 +36,13 @@ const useStyles = makeStyles({
   title: {
     fontSize: '20px',
     fontWeight: 900,
-    color: Colors.neutral['@veryDarkBlue'],
+    color: Colors.primary['@veryDarkViolet'],
     paddingBottom: '10px',
   },
   description: {
     color: Colors.neutral['@grayishViolet'],
-    fontSize: '16px',
+    fontSize: '12.5px',
+    lineHeight: '1.75',
   },
 });
 
@@ -56,8 +57,9 @@ const FeatureCard = (props: FeatureCardProps) => {
         </div>
         <Card
           sx={{
-            width: '400px',
+            width: '300px',
             marginTop: '-40px',
+            zIndex: 100,
           }}
         >
           <div className={styles.textContent}>

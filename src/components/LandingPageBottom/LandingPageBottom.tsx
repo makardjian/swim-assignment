@@ -14,7 +14,6 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: '540px',
     margin: '0px auto',
   },
   header: {
@@ -23,6 +22,7 @@ const useStyles = makeStyles({
     color: Colors.neutral['@veryDarkBlue'],
   },
   subheader: {
+    maxWidth: '540px',
     textAlign: 'center',
     margin: 0,
     fontWeight: 500,
@@ -31,16 +31,29 @@ const useStyles = makeStyles({
   featuresContainer: {
     display: 'flex',
     justifyContent: 'center',
+    position: 'relative',
     marginTop: '50px',
     gap: '64px',
     width: 'fit-content',
+    zIndex: 2,
+  },
+  horizontalColorBar: {
+    position: 'absolute',
+    right: '0px',
+    top: '196px',
+    display: 'block',
+    height: '10px',
+    width: '100%',
+    backgroundColor: Colors.primary['@cyan'],
+    minWidth: '100px',
+    zIndex: -1,
   },
 });
 
 const LandingPageBottom = () => {
   const styles = useStyles();
   return (
-    <div>
+    <section>
       <div className={styles.container}>
         <h2 className={styles.header}>{ADVANCED_STATISTICS}</h2>
         <p className={styles.subheader}>{ADVANCED_STATISTICS_DESCRIPTION}</p>
@@ -49,9 +62,10 @@ const LandingPageBottom = () => {
           {FEATURES.map((feature) => {
             return <FeatureCard feature={feature} />;
           })}
+          <div className={styles.horizontalColorBar}></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

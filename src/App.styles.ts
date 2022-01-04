@@ -4,6 +4,7 @@ import Colors from './styles/Colors';
 const useStyles = makeStyles({
   appRoot: {
     backgroundColor: Colors.background['@solitude'],
+    zIndex: 1,
     minHeight: '100vh',
     paddingBottom: '400px',
   },

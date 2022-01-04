@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
   originalLink: {
     paddingLeft: '50px',
-    color: Colors.neutral['@veryDarkViolet:'],
+    color: Colors.neutral['@veryDarkViolet'],
   },
   shortLinkAndButtonContainer: {
     display: 'flex',
