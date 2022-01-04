@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     paddingRight: '25px',
     '&:hover': {
       cursor: 'pointer',
-      color: Colors.neutral['@veryDarkViolet:'],
+      color: Colors.neutral['@veryDarkViolet'],
     },
   },
 });
