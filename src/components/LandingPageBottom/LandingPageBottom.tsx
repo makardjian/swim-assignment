@@ -15,6 +15,7 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     margin: '0px auto',
+    paddingBottom: '20px',
   },
   header: {
     fontSize: '42px',
