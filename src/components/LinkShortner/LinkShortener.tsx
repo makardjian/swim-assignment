@@ -53,8 +53,6 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
           component='img'
           image={inputBackgroundImage}
           sx={{
-            height: 'auto',
-            width: '100%',
             backgroundColor: Colors.primary['@darkViolet'],
           }}
         />
