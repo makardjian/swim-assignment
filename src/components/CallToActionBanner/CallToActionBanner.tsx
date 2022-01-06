@@ -1,13 +1,24 @@
 import React from 'react';
 import { Card, CardMedia, Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import Button from '../common/Button';
 import bannerBackgroundImage from '../../static/images/bg-boost-desktop.svg';
 import Colors from '../../styles/Colors';
 
 const useStyles = makeStyles({
-  callToActionText: {
+  contentContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
     textAlign: 'center',
-    padding: '30px',
+    alignItems: 'center',
+    height: '100%',
+  },
+  callToActionText: {
+    paddingBottom: '30px',
+    marginBottom: '0px',
+    color: 'white',
+    fontSize: '40px',
   },
 });
 
@@ -18,9 +29,7 @@ const CallToActionBanner = () => {
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        margin: '0px auto',
-        width: '100%',
-        alignItems: 'center',
+        marginTop: '150px',
         position: 'relative',
       }}
     >
@@ -28,22 +37,28 @@ const CallToActionBanner = () => {
         component='img'
         image={bannerBackgroundImage}
         sx={{
-          height: 'auto',
-          width: '100%',
           backgroundColor: Colors.primary['@darkViolet'],
         }}
       />
       <Box
         sx={{
           position: 'absolute',
-          bottom: 0,
           left: 0,
           width: '100%',
           height: '100%',
-          color: 'white',
         }}
       >
-        <h2 className={styles.callToActionText}>Boost Your Links today</h2>
+        <div className={styles.contentContainer}>
+          <h2 className={styles.callToActionText}>Boost Your Links today</h2>
+          <Button
+            customStyles={{
+              paddingLeft: '30px',
+              paddingRight: '30px',
+            }}
+            text='Get Started'
+            size='large'
+          ></Button>
+        </div>
       </Box>
     </Card>
   );
