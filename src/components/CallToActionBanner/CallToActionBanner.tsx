@@ -31,6 +31,7 @@ const CallToActionBanner = () => {
         justifyContent: 'center',
         marginTop: '150px',
         position: 'relative',
+        borderRadius: '0px',
       }}
     >
       <CardMedia
