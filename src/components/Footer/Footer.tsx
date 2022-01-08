@@ -1,8 +1,9 @@
 import React from 'react';
+import SocialIcons from './SocialIcons';
 import { makeStyles } from '@mui/styles';
 import FooterMenuColumn from './FooterMenuColumn';
 import Colors from '../../styles/Colors';
-import { FOOTER_MENU_ITEMS } from './FooterMenuItems';
+import { FOOTER_MENU_ITEMS } from './FooterMenuItems.constants';
 
 const useStyles = makeStyles({
   footer: {
@@ -18,10 +19,16 @@ const useStyles = makeStyles({
   shortlyLogo: {
     fontSize: '36px',
     fontWeight: '700',
+    paddingRight: '150px',
   },
   menuContainer: {
     display: 'flex',
     gap: '75px',
+  },
+  socialIconsContainer: {
+    display: 'flex',
+    gap: '25px',
+    paddingLeft: '20px',
   },
 });
 
@@ -42,7 +49,9 @@ const Footer = () => {
             );
           })}
         </div>
-        <div></div>
+        <div className={styles.socialIconsContainer}>
+          <SocialIcons />
+        </div>
       </div>
     </footer>
   );

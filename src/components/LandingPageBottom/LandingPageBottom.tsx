@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
     margin: '0px auto',
     paddingBottom: '20px',
+    // minWidth: '900px',
   },
   header: {
     fontSize: '42px',
