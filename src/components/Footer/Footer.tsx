@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
+import FooterMenuColumn from './FooterMenuColumn';
 import Colors from '../../styles/Colors';
 import { FOOTER_MENU_ITEMS } from './FooterMenuItems';
 
@@ -7,6 +8,7 @@ const useStyles = makeStyles({
   footer: {
     height: '350px',
     backgroundColor: Colors.neutral['@veryDarkViolet'],
+    color: Colors.background['@white'],
   },
   contentContainer: {
     display: 'flex',
@@ -15,11 +17,11 @@ const useStyles = makeStyles({
   },
   shortlyLogo: {
     fontSize: '36px',
-    color: 'white',
     fontWeight: '700',
   },
   menuContainer: {
     display: 'flex',
+    gap: '75px',
   },
 });
 
@@ -43,25 +45,6 @@ const Footer = () => {
         <div></div>
       </div>
     </footer>
-  );
-};
-
-const FooterMenuColumn = ({
-  columnHeader,
-  menuItems,
-}: {
-  columnHeader: string;
-  menuItems: string[];
-}) => {
-  return (
-    <div>
-      <div>{columnHeader}</div>
-      <ul>
-        {menuItems.map((item: string) => {
-          return <li>{item}</li>;
-        })}
-      </ul>
-    </div>
   );
 };
 
