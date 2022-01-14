@@ -1,5 +1,6 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import type { ShortlyTheme } from '../../../styles/Theme';
+import type { FeatureCardProps } from './FeatureCard';
 
 const useStyles = makeStyles((theme: ShortlyTheme) => {
   const { colors, typography } = theme;

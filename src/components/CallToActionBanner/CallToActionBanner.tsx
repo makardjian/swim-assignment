@@ -1,29 +1,36 @@
 import React from 'react';
 import { Card, CardMedia, Box } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '../common/Button';
 import bannerBackgroundImage from '../../static/images/bg-boost-desktop.svg';
-import Colors from '../../styles/Colors';
+import type { ShortlyTheme } from '../../styles/Theme';
+import {
+  BANNER_HEADER_TEXT,
+  BUTTON_TEXT,
+} from './CallToActionBanner.constants';
 
-const useStyles = makeStyles({
-  contentContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    textAlign: 'center',
-    alignItems: 'center',
-    height: '100%',
-  },
-  callToActionText: {
-    paddingBottom: '30px',
-    marginBottom: '0px',
-    color: 'white',
-    fontSize: '40px',
-  },
-});
+const useStyles = makeStyles(({ colors, typography }: ShortlyTheme) =>
+  createStyles({
+    contentContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      textAlign: 'center',
+      alignItems: 'center',
+      height: '100%',
+    },
+    callToActionText: {
+      paddingBottom: '30px',
+      marginBottom: '0px',
+      color: colors.background['@white'],
+      fontSize: typography.fontSizes.large,
+    },
+  })
+);
 
 const CallToActionBanner = () => {
   const styles = useStyles();
+  const { colors } = useTheme() as ShortlyTheme;
   return (
     <Card
       sx={{
@@ -38,7 +45,7 @@ const CallToActionBanner = () => {
         component='img'
         image={bannerBackgroundImage}
         sx={{
-          backgroundColor: Colors.primary['@darkViolet'],
+          backgroundColor: colors.primary['@darkViolet'],
         }}
       />
       <Box
@@ -50,13 +57,13 @@ const CallToActionBanner = () => {
         }}
       >
         <div className={styles.contentContainer}>
-          <h2 className={styles.callToActionText}>Boost Your Links today</h2>
+          <h2 className={styles.callToActionText}>{BANNER_HEADER_TEXT}</h2>
           <Button
             customStyles={{
               paddingLeft: '30px',
               paddingRight: '30px',
             }}
-            text='Get Started'
+            text={BUTTON_TEXT}
             size='large'
           ></Button>
         </div>

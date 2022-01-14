@@ -3,7 +3,7 @@ import { Card } from '@mui/material';
 import type { Feature } from './FeatureCard.types';
 import useStyles from './FeatureCard.styles';
 
-type FeatureCardProps = {
+export type FeatureCardProps = {
   feature: Feature;
 };
 
