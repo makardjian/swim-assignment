@@ -8,6 +8,7 @@ const Typography = {
   fontWeight: {
     semiBold: 500,
     bold: 700,
+    extraBold: 900,
   },
 };
 

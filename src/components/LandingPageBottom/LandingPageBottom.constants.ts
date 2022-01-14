@@ -1,8 +1,9 @@
 import brandrecognition from '../../static/images/icon-brand-recognition.svg';
 import detailedRecords from '../../static/images/icon-detailed-records.svg';
 import fullyCustomizable from '../../static/images/icon-fully-customizable.svg';
+import type { Feature } from './FeatureCard/FeatureCard.types';
 
-export const ADVANCED_STATISTICS = 'Advanced Statistics';
+export const ADVANCED_STATISTICS_HEADER = 'Advanced Statistics';
 
 export const ADVANCED_STATISTICS_DESCRIPTION =
   'Track how your links are performing across the web with our advanced statistics dashboard.';
@@ -29,4 +30,4 @@ export const FEATURES = [
     icon: fullyCustomizable,
     marginTop: '80px',
   },
-];
+] as Feature[];
