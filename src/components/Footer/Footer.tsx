@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
   },
   shortlyLogo: {
-    fontSize: '36px',
+    fontSize: '40px',
     fontWeight: '700',
     paddingRight: '150px',
   },

@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     // minWidth: '900px',
   },
   header: {
-    fontSize: '42px',
+    fontSize: '40px',
     fontWeight: 700,
     color: Colors.neutral['@veryDarkBlue'],
   },
