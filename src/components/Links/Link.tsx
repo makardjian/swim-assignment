@@ -1,51 +1,19 @@
 import React from 'react';
+import { useTheme } from '@material-ui/core/styles';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from '../common/Button';
-import { makeStyles } from '@mui/styles';
 import type { Link as LinkType } from './Link.type';
-import Colors from '../../styles/Colors';
+import useStyles from './Link.styles';
+import { ShortlyTheme } from '../../styles/Theme';
 
-const useStyles = makeStyles({
-  fullLinkContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '75px',
-    width: '100%',
-    minWidth: '900px',
-    marginTop: '25px',
-    borderRadius: '5px',
-    backgroundColor: Colors.background['@white'],
-  },
-  originalLink: {
-    paddingLeft: '50px',
-    color: Colors.neutral['@veryDarkViolet'],
-  },
-  shortLinkAndButtonContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingRight: '50px',
-    paddingLeft: '50px',
-    color: Colors.primary['@cyan'],
-    fontWeight: 700,
-  },
-  shortLink: {
-    fontWeight: 500,
-  },
-  buttonContainer: {
-    paddingLeft: '30px',
-  },
-});
-
-const Link = ({
-  link,
-  onCopyLink,
-}: {
+type LinkProps = {
   link: LinkType;
   onCopyLink: (id: string) => void;
-}) => {
+};
+
+const Link = ({ link, onCopyLink }: LinkProps) => {
   const styles = useStyles();
+  const { colors } = useTheme() as ShortlyTheme;
 
   return (
     <div className={styles.fullLinkContainer}>
@@ -65,8 +33,8 @@ const Link = ({
                 padding: '10px 35px',
                 backgroundColor: `${
                   link.isCopied
-                    ? Colors.primary['@darkViolet']
-                    : Colors.primary['@cyan']
+                    ? colors.primary['@darkViolet']
+                    : colors.primary['@cyan']
                 }`,
               }}
             />

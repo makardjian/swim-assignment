@@ -1,25 +1,27 @@
 import React from 'react';
-import { makeStyles } from '@mui/styles';
-import Colors from '../../styles/Colors';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import type { ShortlyTheme } from '../../styles/Theme';
 
-const useStyles = makeStyles({
-  columnHeader: {
-    textTransform: 'capitalize',
-    fontWeight: '900',
-  },
-  menuItemsContainer: {
-    listStyleType: 'none',
-    paddingLeft: '0px',
-  },
-  menuItem: {
-    padding: '5px 0px',
-    color: Colors.neutral['@grayishViolet'],
-    '&:hover': {
-      cursor: 'pointer',
-      color: Colors.primary['@cyan'],
+const useStyles = makeStyles(({ colors, typography }: ShortlyTheme) =>
+  createStyles({
+    columnHeader: {
+      textTransform: 'capitalize',
+      fontWeight: typography.fontWeight.extraBold,
     },
-  },
-});
+    menuItemsContainer: {
+      listStyleType: 'none',
+      paddingLeft: '0px',
+    },
+    menuItem: {
+      padding: '5px 0px',
+      color: colors.neutral['@grayishViolet'],
+      '&:hover': {
+        cursor: 'pointer',
+        color: colors.primary['@cyan'],
+      },
+    },
+  })
+);
 
 const FooterMenuColumn = ({
   columnHeader,

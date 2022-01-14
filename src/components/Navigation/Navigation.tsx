@@ -1,6 +1,6 @@
 import React from 'react';
-import NavigationOptions from './NavigationOptions';
 import Button from '../common/Button';
+import NavigationOptions from './NavigationOptions';
 import shortlyLogo from '../../static/images/logo.svg';
 import { makeStyles } from '@mui/styles';
 import {
@@ -31,6 +31,8 @@ const useStyles = makeStyles({
   },
 });
 
+const BUTTON_TEXT = 'Sign Up';
+
 const Navigation = () => {
   const classes = useStyles();
   return (
@@ -46,7 +48,7 @@ const Navigation = () => {
         </div>
         <div className={classes.navSection}>
           <NavigationOptions options={rightSideNavOptions} />
-          <Button text='Sign Up' />
+          <Button text={BUTTON_TEXT} />
         </div>
       </div>
     </div>

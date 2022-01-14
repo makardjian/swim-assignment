@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Theme } from './styles/Theme';
 import Navigation from './components/Navigation/Navigation';
 import LandingPageTop from './components/LandingPageTop/LandingPageTop';
 import LinkShortener from './components/LinkShortner/LinkShortener';
@@ -11,7 +12,7 @@ import { fetchShortenedLink } from './api/fetchShortenedLink';
 import useStyles from './App.styles';
 import { MOCK_LINKS } from './static/mockData';
 
-function App() {
+function ShortlyLinkShortenerApp() {
   const classes = useStyles();
   const [links, setLinks] = useState(MOCK_LINKS as Link[]);
   const [linkGenerationError, setLinkGenerationError] = useState('');
@@ -67,4 +68,12 @@ function App() {
   );
 }
 
-export default App;
+function AppWithProviders() {
+  return (
+    <Theme>
+      <ShortlyLinkShortenerApp />
+    </Theme>
+  );
+}
+
+export default AppWithProviders;

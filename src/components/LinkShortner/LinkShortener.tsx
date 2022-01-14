@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Card, CardMedia, Box, TextField } from '@mui/material';
+import { useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import Button from '../common/Button';
 import inputBackgroundImage from '../../static/images/bg-shorten-desktop.svg';
-import { makeStyles } from '@mui/styles';
-import Colors from '../../styles/Colors';
+import type { ShortlyTheme } from '../../styles/Theme';
+import { BUTTON_TEXT, TEXT_FIELD_PLACEHOLDER } from './LinkShortener.constants';
 
 const useStyles = makeStyles({
   inputAndButtonContainer: {
@@ -21,6 +23,7 @@ type LinkShortenerProps = {
 
 const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
   const styles = useStyles();
+  const theme = useTheme() as ShortlyTheme;
   const [inputValue, setInputValue] = useState('');
 
   const onInputChange = (inputVal: string) => {
@@ -32,8 +35,6 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
     setInputValue('');
   };
 
-  console.log({ inputValue });
-
   return (
     <div>
       <Card
@@ -44,7 +45,6 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
           maxWidth: '1440px',
           width: '100%',
           minWidth: '900px',
-          alignItems: 'center',
           position: 'relative',
           borderRadius: '10px',
         }}
@@ -53,37 +53,34 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
           component='img'
           image={inputBackgroundImage}
           sx={{
-            backgroundColor: Colors.primary['@darkViolet'],
+            backgroundColor: theme.colors.primary['@darkViolet'],
           }}
         />
         <Box
           sx={{
             position: 'absolute',
-            bottom: 0,
-            left: 0,
             width: '100%',
             height: '100%',
-            color: 'white',
           }}
         >
           <div className={styles.inputAndButtonContainer}>
             <TextField
               id='basic'
-              label='Shorten a link here...'
+              label={TEXT_FIELD_PLACEHOLDER}
               variant='outlined'
               autoComplete='off'
               fullWidth
               value={inputValue}
               onChange={(e) => onInputChange(e?.target?.value)}
               sx={{
-                backgroundColor: 'white',
+                backgroundColor: theme.colors.background['@white'],
                 borderRadius: '10px',
                 width: '80%',
                 margin: '10px',
               }}
             />
             <Button
-              text='Shorten it!'
+              text={BUTTON_TEXT}
               size='large'
               shape='square'
               onClick={onButtonClick}
