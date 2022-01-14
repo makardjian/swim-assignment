@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     color: Colors.neutral['@grayishViolet'],
   },
   featuresContainer: {
-    display: 'flex',
+    flexFlow: 'row-wrap',
     justifyContent: 'center',
     position: 'relative',
     marginTop: '50px',
@@ -59,7 +59,6 @@ const LandingPageBottom = () => {
       <div className={styles.container}>
         <h2 className={styles.header}>{ADVANCED_STATISTICS}</h2>
         <p className={styles.subheader}>{ADVANCED_STATISTICS_DESCRIPTION}</p>
-        {/* new component */}
         <div className={styles.featuresContainer}>
           {FEATURES.map((feature) => {
             return <FeatureCard feature={feature} />;

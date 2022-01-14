@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     margin: '0px auto',
     maxWidth: '1440px',
     minWidth: '700px',
+    overflow: 'hidden',
   },
   textAndButtonContainer: {
     width: '50%',
