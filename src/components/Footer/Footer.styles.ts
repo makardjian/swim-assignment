@@ -16,7 +16,7 @@ const useStyles = makeStyles(({ colors, typography }: ShortlyTheme) =>
     shortlyLogo: {
       fontSize: typography.fontSizes.large,
       fontWeight: typography.fontWeight.bold,
-      paddingRight: '150px',
+      paddingRight: '100px',
     },
     menuContainer: {
       display: 'flex',

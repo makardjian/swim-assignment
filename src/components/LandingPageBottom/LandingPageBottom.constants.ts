@@ -12,7 +12,7 @@ export const FEATURES = [
   {
     title: 'Brand Recognition',
     description:
-      "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instill confidence in your content",
+      "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instill confidence in your content.",
     icon: brandrecognition,
     marginTop: '0px',
   },
