@@ -16,6 +16,8 @@ type LinkShortenerProps = {
   generateShortenedLink: (originalUrl: string) => void;
 };
 
+const ENTER_KEY = 'Enter';
+
 const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
   const styles = useStyles();
   const { colors } = useTheme() as ShortlyTheme;
@@ -29,13 +31,19 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
     setInputValue(inputVal);
   };
 
-  const onButtonClick = () => {
+  const onGenerateShortenedLink = () => {
     if (!inputValue.length) {
       setEmptyInputError(true);
       return;
     }
     generateShortenedLink(inputValue);
     setInputValue('');
+  };
+
+  const onKeyPress = (event: KeyboardEvent) => {
+    if (event.key === ENTER_KEY) {
+      onGenerateShortenedLink();
+    }
   };
 
   const inputBaseClass = emptyInputError
@@ -62,12 +70,14 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
                 value={inputValue}
                 onChange={(e) => onInputChange(e?.target?.value)}
                 error={emptyInputError}
+                // @ts-expect-error
+                onKeyPress={(e) => onKeyPress(e)}
               />
               <Button
                 text={BUTTON_TEXT}
                 size='large'
                 shape='square'
-                onClick={onButtonClick}
+                onClick={onGenerateShortenedLink}
                 customStyles={{ margin: '10px' }}
               />
             </div>
