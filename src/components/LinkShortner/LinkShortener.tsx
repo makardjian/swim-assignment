@@ -1,43 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { cx, css } from '@emotion/css';
 import { Card, CardMedia, Box, InputBase } from '@mui/material';
 import { useTheme } from '@material-ui/core/styles';
+import { usePrevious } from '../../hooks/usePrevious';
 import Button from '../common/Button';
 import useStyles from './LinkShortener.styles';
 import type { ShortlyTheme } from '../../styles/Theme';
 import inputBackgroundImage from '../../static/images/bg-shorten-desktop.svg';
-import {
-  BUTTON_TEXT,
-  INPUT_PLACEHOLDER,
-  EMPTY_INPUT_ERROR_MSG,
-} from './LinkShortener.constants';
+import { BUTTON_TEXT, INPUT_PLACEHOLDER } from './LinkShortener.constants';
 
 type LinkShortenerProps = {
   generateShortenedLink: (originalUrl: string) => void;
+  errorMessage: string;
+  clearErrorMessage: () => void;
+  linkCount: number;
 };
 
 const ENTER_KEY = 'Enter';
 
-const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
+const LinkShortener = (props: LinkShortenerProps) => {
+  const { generateShortenedLink, errorMessage, clearErrorMessage, linkCount } =
+    props;
+  const prevLinkCount: number = usePrevious(linkCount);
   const styles = useStyles();
   const { colors } = useTheme() as ShortlyTheme;
   const [inputValue, setInputValue] = useState('');
-  const [emptyInputError, setEmptyInputError] = useState(false);
 
   const onInputChange = (inputVal: string) => {
-    if (emptyInputError) {
-      setEmptyInputError(false);
+    if (errorMessage) {
+      clearErrorMessage();
     }
     setInputValue(inputVal);
   };
 
   const onGenerateShortenedLink = () => {
-    if (!inputValue.length) {
-      setEmptyInputError(true);
-      return;
-    }
     generateShortenedLink(inputValue);
-    setInputValue('');
   };
 
   const onKeyPress = (event: KeyboardEvent) => {
@@ -46,7 +43,13 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
     }
   };
 
-  const inputBaseClass = emptyInputError
+  useEffect(() => {
+    if (linkCount > prevLinkCount) {
+      setInputValue('');
+    }
+  }, [linkCount]);
+
+  const inputBaseClass = errorMessage
     ? cx(styles.inputBase, css({ borderColor: colors.secondary['@red'] }))
     : styles.inputBase;
 
@@ -69,7 +72,7 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
                 fullWidth
                 value={inputValue}
                 onChange={(e) => onInputChange(e?.target?.value)}
-                error={emptyInputError}
+                error={errorMessage.length ? true : false}
                 // @ts-expect-error
                 onKeyPress={(e) => onKeyPress(e)}
               />
@@ -81,10 +84,8 @@ const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
                 customStyles={{ margin: '10px' }}
               />
             </div>
-            {emptyInputError && (
-              <span className={styles.emptyInputError}>
-                {EMPTY_INPUT_ERROR_MSG}
-              </span>
+            {errorMessage && (
+              <span className={styles.emptyInputError}>{errorMessage}</span>
             )}
           </div>
         </Box>

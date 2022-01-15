@@ -10,14 +10,23 @@ import Footer from './components/Footer/Footer';
 import type { Link } from './components/Links/Link.type';
 import { fetchShortenedLink } from './api/fetchShortenedLink';
 import useStyles from './App.styles';
+import {
+  EMPTY_INPUT_ERROR_MSG,
+  INVALID_URL_ERROR_MSG,
+} from './static/errorMessages.constants';
 import { MOCK_LINKS } from './static/mockData';
 
 function ShortlyLinkShortenerApp() {
   const classes = useStyles();
   const [links, setLinks] = useState(MOCK_LINKS as Link[]);
-  const [linkGenerationError, setLinkGenerationError] = useState('');
+  const [linkShortenerErrorMessage, setLinkShortenerErrorMessage] =
+    useState('');
 
   const generateShortenedLink = async (originalUrl: string) => {
+    if (!originalUrl.length) {
+      setLinkShortenerErrorMessage(EMPTY_INPUT_ERROR_MSG);
+      return;
+    }
     const link: Link = await fetchShortenedLink(originalUrl);
     const { shortLink, errorMessage } = link;
     if (shortLink) {
@@ -27,7 +36,8 @@ function ShortlyLinkShortenerApp() {
       return;
     }
     if (errorMessage) {
-      setLinkGenerationError(errorMessage);
+      console.log({ errorMessage });
+      setLinkShortenerErrorMessage(INVALID_URL_ERROR_MSG);
     }
   };
 
@@ -50,7 +60,7 @@ function ShortlyLinkShortenerApp() {
 
   console.log({
     links,
-    linkGenerationError,
+    linkShortenerErrorMessage,
   });
 
   return (
@@ -58,7 +68,12 @@ function ShortlyLinkShortenerApp() {
       <Navigation />
       <LandingPageTop />
       <div className={classes.linkShortenerAndLinksContainer}>
-        <LinkShortener generateShortenedLink={generateShortenedLink} />
+        <LinkShortener
+          generateShortenedLink={generateShortenedLink}
+          errorMessage={linkShortenerErrorMessage}
+          clearErrorMessage={() => setLinkShortenerErrorMessage('')}
+          linkCount={links.length}
+        />
         <Links links={links} onCopyLink={onCopyLink} />
       </div>
       <LandingPageBottom />
