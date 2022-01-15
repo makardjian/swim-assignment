@@ -14,7 +14,7 @@ export const MOCK_LINKS = [
   },
   {
     id: '114f9a76-5722-4a38-acd8-3d0c9f2f2a57',
-    isCopied: true,
+    isCopied: false,
     originalLink:
       'https://www.google.com/search?q=execute callback when user copies text to clipboard',
     shortLink: 'shrtco.de/PpXy3P',

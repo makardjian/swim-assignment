@@ -13,7 +13,9 @@ type LinkProps = {
 
 const Link = ({ link, onCopyLink }: LinkProps) => {
   const styles = useStyles();
-  const { colors } = useTheme() as ShortlyTheme;
+  const {
+    colors: { primary },
+  } = useTheme() as ShortlyTheme;
 
   return (
     <div className={styles.fullLinkContainer}>
@@ -32,10 +34,13 @@ const Link = ({ link, onCopyLink }: LinkProps) => {
               customStyles={{
                 padding: '10px 35px',
                 backgroundColor: `${
-                  link.isCopied
-                    ? colors.primary['@darkViolet']
-                    : colors.primary['@cyan']
+                  link.isCopied ? primary['@darkViolet'] : primary['@cyan']
                 }`,
+                '&:hover': {
+                  backgroundColor: link.isCopied
+                    ? primary['@darkViolet']
+                    : primary.derivatives['@lightCyan'],
+                },
               }}
             />
           </CopyToClipboard>

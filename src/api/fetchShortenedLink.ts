@@ -35,7 +35,6 @@ export const fetchShortenedLink = async (
       return {
         shortLink: short_link,
         originalLink: original_link,
-        isCopied: false,
         id: uuid(),
       };
     }
@@ -43,7 +42,6 @@ export const fetchShortenedLink = async (
   } catch (error: any) {
     return {
       errorMessage: error.message,
-      isCopied: false,
       id: uuid(),
     };
   }
