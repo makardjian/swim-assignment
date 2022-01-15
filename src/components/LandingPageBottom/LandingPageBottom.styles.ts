@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: ShortlyTheme) => {
     },
     header: {
       fontSize: typography.fontSizes.large,
-      fontWeight: typography.fontWeight.semiBold,
+      fontWeight: typography.fontWeight.bold,
       color: colors.neutral['@veryDarkBlue'],
     },
     subheader: {

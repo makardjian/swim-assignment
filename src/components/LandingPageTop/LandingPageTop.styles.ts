@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: ShortlyTheme) =>
     mainHeaderText: {
       fontSize: theme.typography.fontSizes.extraLarge,
       fontWeight: theme.typography.fontWeight.bold,
-      letterSpacing: '-2px',
+      letterSpacing: '-3px',
       color: theme.colors.neutral['@veryDarkBlue'],
     },
     subHeaderTextContainer: {

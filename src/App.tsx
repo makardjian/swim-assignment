@@ -9,48 +9,50 @@ import CallToActionBanner from './components/CallToActionBanner/CallToActionBann
 import Footer from './components/Footer/Footer';
 import type { Link } from './components/Links/Link.type';
 import { fetchShortenedLink } from './api/fetchShortenedLink';
+import { injectIsCopiedValueIntoRawLink } from './utils/injectIsCopiedValueIntoRawLink';
+import { setIsCopiedOnLinks } from './utils/setIsCopiedOnLinks';
 import useStyles from './App.styles';
+import {
+  EMPTY_INPUT_ERROR_MSG,
+  INVALID_URL_ERROR_MSG,
+} from './static/errorMessages.constants';
 import { MOCK_LINKS } from './static/mockData';
 
 function ShortlyLinkShortenerApp() {
   const classes = useStyles();
   const [links, setLinks] = useState(MOCK_LINKS as Link[]);
-  const [linkGenerationError, setLinkGenerationError] = useState('');
+  const [linkShortenerErrorMessage, setLinkShortenerErrorMessage] =
+    useState('');
 
   const generateShortenedLink = async (originalUrl: string) => {
-    const link: Link = await fetchShortenedLink(originalUrl);
-    const { shortLink, errorMessage } = link;
+    if (!originalUrl) {
+      setLinkShortenerErrorMessage(EMPTY_INPUT_ERROR_MSG);
+      return;
+    }
+    const rawLink: Link = await fetchShortenedLink(originalUrl);
+    const { shortLink, errorMessage } = rawLink;
     if (shortLink) {
-      const newLinks = [...links, link];
-      console.log({ newLinks });
+      const link: Link = injectIsCopiedValueIntoRawLink(rawLink);
+      const newLinks: Link[] = [link, ...links];
       setLinks(newLinks);
       return;
     }
     if (errorMessage) {
-      setLinkGenerationError(errorMessage);
+      setLinkShortenerErrorMessage(INVALID_URL_ERROR_MSG);
     }
   };
 
   const onCopyLink = (id: string) => {
-    const newLinks = links.map((link) => {
-      if (link.id === id) {
-        return {
-          ...link,
-          isCopied: true,
-        };
-      } else {
-        return {
-          ...link,
-          isCopied: false,
-        };
-      }
+    const newLinks = setIsCopiedOnLinks({
+      links: links,
+      copiedLinkId: id,
     });
     setLinks(newLinks);
   };
 
   console.log({
     links,
-    linkGenerationError,
+    linkShortenerErrorMessage,
   });
 
   return (
@@ -58,7 +60,12 @@ function ShortlyLinkShortenerApp() {
       <Navigation />
       <LandingPageTop />
       <div className={classes.linkShortenerAndLinksContainer}>
-        <LinkShortener generateShortenedLink={generateShortenedLink} />
+        <LinkShortener
+          generateShortenedLink={generateShortenedLink}
+          errorMessage={linkShortenerErrorMessage}
+          clearErrorMessage={() => setLinkShortenerErrorMessage('')}
+          linkCount={links.length}
+        />
         <Links links={links} onCopyLink={onCopyLink} />
       </div>
       <LandingPageBottom />

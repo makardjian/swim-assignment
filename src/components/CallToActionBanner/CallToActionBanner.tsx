@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ colors, typography }: ShortlyTheme) =>
       flexDirection: 'column',
       textAlign: 'center',
       alignItems: 'center',
-      height: '100%',
+      height: '90%',
     },
     callToActionText: {
       paddingBottom: '30px',
@@ -39,12 +39,14 @@ const CallToActionBanner = () => {
         marginTop: '150px',
         position: 'relative',
         borderRadius: '0px',
+        height: '300px',
       }}
     >
       <CardMedia
         component='img'
         image={bannerBackgroundImage}
         sx={{
+          height: '100%',
           backgroundColor: colors.primary['@darkViolet'],
         }}
       />
