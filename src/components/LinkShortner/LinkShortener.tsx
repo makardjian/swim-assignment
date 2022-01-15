@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
-import { Card, CardMedia, Box, TextField } from '@mui/material';
+import { cx, css } from '@emotion/css';
+import { Card, CardMedia, Box, InputBase } from '@mui/material';
 import { useTheme } from '@material-ui/core/styles';
-import { makeStyles } from '@mui/styles';
 import Button from '../common/Button';
-import inputBackgroundImage from '../../static/images/bg-shorten-desktop.svg';
+import useStyles from './LinkShortener.styles';
 import type { ShortlyTheme } from '../../styles/Theme';
-import { BUTTON_TEXT, TEXT_FIELD_PLACEHOLDER } from './LinkShortener.constants';
-
-const useStyles = makeStyles({
-  inputAndButtonContainer: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    height: '100%',
-    padding: '0px 50px',
-  },
-});
+import inputBackgroundImage from '../../static/images/bg-shorten-desktop.svg';
+import {
+  BUTTON_TEXT,
+  INPUT_PLACEHOLDER,
+  EMPTY_INPUT_ERROR_MSG,
+} from './LinkShortener.constants';
 
 type LinkShortenerProps = {
   generateShortenedLink: (originalUrl: string) => void;
@@ -23,69 +18,64 @@ type LinkShortenerProps = {
 
 const LinkShortener = ({ generateShortenedLink }: LinkShortenerProps) => {
   const styles = useStyles();
-  const theme = useTheme() as ShortlyTheme;
+  const { colors } = useTheme() as ShortlyTheme;
   const [inputValue, setInputValue] = useState('');
+  const [emptyInputError, setEmptyInputError] = useState(false);
 
   const onInputChange = (inputVal: string) => {
+    if (emptyInputError) {
+      setEmptyInputError(false);
+    }
     setInputValue(inputVal);
   };
 
   const onButtonClick = () => {
+    if (!inputValue.length) {
+      setEmptyInputError(true);
+      return;
+    }
     generateShortenedLink(inputValue);
     setInputValue('');
   };
 
+  const inputBaseClass = emptyInputError
+    ? cx(styles.inputBase, css({ borderColor: colors.secondary['@red'] }))
+    : styles.inputBase;
+
   return (
     <div>
-      <Card
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          margin: '0px auto',
-          maxWidth: '1440px',
-          width: '100%',
-          minWidth: '900px',
-          position: 'relative',
-          borderRadius: '10px',
-        }}
-      >
+      <Card className={styles.card} sx={{ borderRadius: '10px' }}>
         <CardMedia
           component='img'
           image={inputBackgroundImage}
-          sx={{
-            backgroundColor: theme.colors.primary['@darkViolet'],
-          }}
+          className={styles.cardMedia}
         />
-        <Box
-          sx={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <div className={styles.inputAndButtonContainer}>
-            <TextField
-              id='basic'
-              label={TEXT_FIELD_PLACEHOLDER}
-              variant='outlined'
-              autoComplete='off'
-              fullWidth
-              value={inputValue}
-              onChange={(e) => onInputChange(e?.target?.value)}
-              sx={{
-                backgroundColor: theme.colors.background['@white'],
-                borderRadius: '10px',
-                width: '80%',
-                margin: '10px',
-              }}
-            />
-            <Button
-              text={BUTTON_TEXT}
-              size='large'
-              shape='square'
-              onClick={onButtonClick}
-              customStyles={{ margin: '10px' }}
-            />
+        <Box className={styles.contentBox}>
+          <div className={styles.contentFlexContainer}>
+            <div className={styles.inputAndButtonContainer}>
+              <InputBase
+                id='basic'
+                className={inputBaseClass}
+                placeholder={INPUT_PLACEHOLDER}
+                autoComplete='off'
+                fullWidth
+                value={inputValue}
+                onChange={(e) => onInputChange(e?.target?.value)}
+                error={emptyInputError}
+              />
+              <Button
+                text={BUTTON_TEXT}
+                size='large'
+                shape='square'
+                onClick={onButtonClick}
+                customStyles={{ margin: '10px' }}
+              />
+            </div>
+            {emptyInputError && (
+              <span className={styles.emptyInputError}>
+                {EMPTY_INPUT_ERROR_MSG}
+              </span>
+            )}
           </div>
         </Box>
       </Card>
