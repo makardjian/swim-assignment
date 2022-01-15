@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button as MUIButton } from '@mui/material';
-import Colors from '../../styles/Colors';
+import { useTheme } from '@material-ui/core/styles';
+import { ShortlyTheme } from '../../styles/Theme';
 
 type ButtonProps = {
   text: string;
@@ -19,7 +20,8 @@ const Button = ({
   shape = 'oval',
   customStyles,
 }: ButtonProps) => {
-  const shapeIsSquare = shape === 'square';
+  const { colors, typography } = useTheme() as ShortlyTheme;
+  const shapeIsSquare: boolean = shape === 'square';
   return (
     <MUIButton
       variant='contained'
@@ -31,11 +33,11 @@ const Button = ({
         margin: '0px auto',
         padding: `${shapeIsSquare ? '15px 35px' : 'inheret'}`,
         borderRadius: `${shapeIsSquare ? '10px' : '20px'}`,
-        fontWeight: '700',
+        fontWeight: typography.fontWeight.bold,
         textTransform: 'capitalize',
-        backgroundColor: Colors.primary['@cyan'],
+        backgroundColor: colors.primary['@cyan'],
         '&:hover': {
-          backgroundColor: Colors.primary.derivatives['@lightCyan'],
+          backgroundColor: colors.primary.derivatives['@lightCyan'],
         },
         ...customStyles,
       }}
