@@ -35,8 +35,12 @@ const FooterMenuColumn = ({
     <div>
       <div className={styles.columnHeader}>{columnHeader}</div>
       <ul className={styles.menuItemsContainer}>
-        {menuItems.map((item: string) => {
-          return <li className={styles.menuItem}>{item}</li>;
+        {menuItems.map((item: string, index: number) => {
+          return (
+            <li key={`${item}-${index}`} className={styles.menuItem}>
+              {item}
+            </li>
+          );
         })}
       </ul>
     </div>

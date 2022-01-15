@@ -21,7 +21,7 @@ function ShortlyLinkShortenerApp() {
     const link: Link = await fetchShortenedLink(originalUrl);
     const { shortLink, errorMessage } = link;
     if (shortLink) {
-      const newLinks = [...links, link];
+      const newLinks = [link, ...links];
       console.log({ newLinks });
       setLinks(newLinks);
       return;

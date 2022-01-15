@@ -36,7 +36,7 @@ const useStyles = makeStyles(({ colors }: ShortlyTheme) =>
     inputBase: {
       backgroundColor: colors.background['@white'],
       margin: '10px',
-      padding: '7px',
+      padding: '8px',
       border: '4px solid transparent',
       borderRadius: '10px',
     },
