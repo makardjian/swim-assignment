@@ -16,12 +16,7 @@ const FeatureCard = (props: FeatureCardProps) => {
         <div className={styles.iconBall}>
           <img className={styles.icon} src={icon} alt={`${title}-icon`} />
         </div>
-        <Card
-          sx={{
-            width: '300px',
-            marginTop: '-40px',
-          }}
-        >
+        <Card className={styles.card}>
           <div className={styles.textContent}>
             <div className={styles.title}>{title}</div>
             <div className={styles.description}>{description}</div>
