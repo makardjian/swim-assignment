@@ -25,9 +25,9 @@ Notice that when the page loads, three static links always appear in order to de
 
 If I had more time, I would continue developing the application in the following order:
 1. I would spend time to make sure that the application works flawlessly across devices of all sizes. As the application stands now, the UX is poor when the width of the screen is less than 1000px.
-2. I would implement a way for the data to persist upon realoading the page. This could be achieved either by leveraging the browser's local storage, or, the more robust option would be to implement a SQL database using a tool like Prisma.
-3. I would create a pagination container for the links such that if the user has more than 10 links, only ten links would be viewable per page.
-4. Rather than implementing a traditional Username / Passsword authentication layer, I would explore making Shortly a Web3 application that allows a user to access their links by connecting the application to their Metamask browser wallet.
+2. I would implement a way for the data to persist once the user reloads the page. I could achieve this either by using the browser's local storage sytem, or by implementing a SQL database using a tool like Prisma. Alongside this feature, I would make sure the user had the ability to clean their list of links by deleting old, unwanted links.
+3. I would create a pagination container for the links such that if the user were to have more than ten links, the links would auto-paginatie in ten-link increments.
+4. Rather than implementing a traditional Username / Passsword authentication layer, I would explore making Shortly a Web3 application that allows a user to access their previously generated links by connecting the application to their Metamask browser wallet.
 5. I would write a series of unit tests to provide a reasonable amount of test coverage for the application.
 
 
