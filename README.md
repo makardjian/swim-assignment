@@ -12,10 +12,10 @@ Wait for packages to be installed...
 
 ### `yarn start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+The page will reload if you make edits.
 
 Once the app is running in the browser, paste any Web URL into the Input Field. To generate a shortened link from the URL, click the `Shorten It!` button, or push the `Enter`.
 
