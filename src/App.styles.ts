@@ -4,16 +4,16 @@ import type { ShortlyTheme } from './styles/Theme';
 const useStyles = makeStyles((theme: ShortlyTheme) =>
   createStyles({
     appRoot: {
-      backgroundColor: theme.colors.background['@solitude'],
-      zIndex: 1,
+      display: 'flex',
+      flexDirection: 'column',
       minHeight: '100vh',
+      width: '100%',
     },
     linkShortenerAndLinksContainer: {
       display: 'flex',
       flexDirection: 'column',
-      margin: '-100px auto 0px auto',
-      paddingTop: '0px',
-      padding: '0px 100px 150px 100px',
+      marginTop: '-100px',
+      padding: '0px 100px 100px 100px',
     },
   })
 );

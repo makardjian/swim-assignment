@@ -59,7 +59,7 @@ function ShortlyLinkShortenerApp() {
     <div className={classes.appRoot}>
       <Navigation />
       <LandingPageTop />
-      <div className={classes.linkShortenerAndLinksContainer}>
+      <section className={classes.linkShortenerAndLinksContainer}>
         <LinkShortener
           generateShortenedLink={generateShortenedLink}
           errorMessage={linkShortenerErrorMessage}
@@ -67,7 +67,7 @@ function ShortlyLinkShortenerApp() {
           linkCount={links.length}
         />
         <Links links={links} onCopyLink={onCopyLink} />
-      </div>
+      </section>
       <LandingPageBottom />
       <CallToActionBanner />
       <Footer />

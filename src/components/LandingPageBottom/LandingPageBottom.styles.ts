@@ -10,7 +10,9 @@ const useStyles = makeStyles((theme: ShortlyTheme) => {
       justifyContent: 'center',
       alignItems: 'center',
       margin: '0px auto',
-      paddingBottom: '20px',
+      padding: '0px 100px 20px',
+      maxWidth: '1440px',
+      minWidth: '700px',
     },
     header: {
       fontSize: typography.fontSizes.large,
@@ -31,7 +33,6 @@ const useStyles = makeStyles((theme: ShortlyTheme) => {
       marginTop: '50px',
       gap: '64px',
       width: 'fit-content',
-      zIndex: 2,
     },
     horizontalColorBar: {
       position: 'absolute',
