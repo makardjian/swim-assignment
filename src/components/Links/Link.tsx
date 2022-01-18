@@ -17,27 +17,36 @@ const Link = ({ link, onCopyLink }: LinkProps) => {
     colors: { primary },
   } = useTheme() as ShortlyTheme;
 
+  const linkIsCopied = link?.isCopied;
+
   return (
     <div className={styles.fullLinkContainer}>
-      <div className={styles.originalLink}>{link.originalLink}</div>
+      <a className={styles.originalLink} href={link.originalLink}>
+        {link.originalLink}
+      </a>
       <div className={styles.shortLinkAndButtonContainer}>
-        <span className={styles.shortLink}>{link.shortLink}</span>
+        <a className={styles.shortLink} href={link.shortLink}>
+          {link.shortLink}
+        </a>
         <div className={styles.buttonContainer}>
           <CopyToClipboard
             text={link.shortLink}
             onCopy={() => onCopyLink(link.id)}
           >
             <Button
-              text={`${link.isCopied ? 'Copied!' : 'Copy'}`}
+              text={`${linkIsCopied ? 'Copied!' : 'Copy'}`}
               shape='square'
               size='large'
               customStyles={{
-                padding: '10px 35px',
+                paddingTop: '8px',
+                paddingBottom: '8px',
+                paddingLeft: `${linkIsCopied ? '20px' : '30px'}`,
+                paddingRight: `${linkIsCopied ? '20px' : '30px'}`,
                 backgroundColor: `${
-                  link.isCopied ? primary['@darkViolet'] : primary['@cyan']
+                  linkIsCopied ? primary['@darkViolet'] : primary['@cyan']
                 }`,
                 '&:hover': {
-                  backgroundColor: link.isCopied
+                  backgroundColor: linkIsCopied
                     ? primary['@darkViolet']
                     : primary.derivatives['@lightCyan'],
                 },

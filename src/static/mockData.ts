@@ -1,12 +1,12 @@
 export const MOCK_LINKS = [
   {
-    shortLink: 'shrtco.de/Rh8fXB',
+    shortLink: 'https://shrtco.de/Rh8fXB',
     originalLink: 'https://www.npmjs.com/package/uuid',
     isCopied: false,
     id: '23bdbfdc-5888-43be-82d6-2cc4c1d1a7b7',
   },
   {
-    shortLink: 'shrtco.de/GIFUah',
+    shortLink: 'https://shrtco.de/GIFUah',
     originalLink:
       'https://www.google.com/search?q=how to read system clipboard',
     isCopied: false,
@@ -17,6 +17,6 @@ export const MOCK_LINKS = [
     isCopied: false,
     originalLink:
       'https://www.google.com/search?q=execute callback when user copies text to clipboard',
-    shortLink: 'shrtco.de/PpXy3P',
+    shortLink: 'https://shrtco.de/PpXy3P',
   },
 ];

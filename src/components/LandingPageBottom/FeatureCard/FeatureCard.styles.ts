@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: ShortlyTheme) => {
     },
     description: {
       color: colors.neutral['@grayishViolet'],
-      fontSize: '13px',
+      fontSize: '14px',
       lineHeight: '1.75',
     },
   });

@@ -11,9 +11,9 @@ const useStyles = makeStyles({
 });
 
 const NavigationOptions = ({ options }: { options: string[] }) => {
-  const classes = useStyles();
+  const styles = useStyles();
   return (
-    <div className={classes.navOptionsContainer}>
+    <div className={styles.navOptionsContainer}>
       {options.map((option: string) => (
         <NavItem text={option} key={option} />
       ))}

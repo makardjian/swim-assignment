@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import type { ShortlyTheme } from '../../styles/Theme';
 
-const useStyles = makeStyles(({ colors }: ShortlyTheme) =>
+const useStyles = makeStyles(({ colors, typography }: ShortlyTheme) =>
   createStyles({
     fullLinkContainer: {
       display: 'flex',
@@ -15,20 +15,21 @@ const useStyles = makeStyles(({ colors }: ShortlyTheme) =>
       backgroundColor: colors.background['@white'],
     },
     originalLink: {
-      paddingLeft: '50px',
-      color: colors.neutral['@veryDarkViolet'],
+      padding: '0px 50px',
+      color: colors.neutral['@veryDarkBlue'],
+      textDecoration: 'none',
     },
     shortLinkAndButtonContainer: {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
-      paddingRight: '50px',
-      paddingLeft: '50px',
-      color: colors.primary['@cyan'],
-      fontWeight: 700,
+      padding: '0px 50px',
+      fontWeight: typography.fontWeight.bold,
     },
     shortLink: {
-      fontWeight: 500,
+      fontWeight: typography.fontWeight.semiBold,
+      textDecoration: 'none',
+      color: colors.primary['@cyan'],
     },
     buttonContainer: {
       paddingLeft: '30px',

@@ -19,7 +19,7 @@ import {
 import { MOCK_LINKS } from './static/mockData';
 
 function ShortlyLinkShortenerApp() {
-  const classes = useStyles();
+  const styles = useStyles();
   const [links, setLinks] = useState(MOCK_LINKS as Link[]);
   const [linkShortenerErrorMessage, setLinkShortenerErrorMessage] =
     useState('');
@@ -56,10 +56,10 @@ function ShortlyLinkShortenerApp() {
   });
 
   return (
-    <div className={classes.appRoot}>
+    <div className={styles.appRoot}>
       <Navigation />
       <LandingPageTop />
-      <div className={classes.linkShortenerAndLinksContainer}>
+      <section className={styles.linkShortenerAndLinksContainer}>
         <LinkShortener
           generateShortenedLink={generateShortenedLink}
           errorMessage={linkShortenerErrorMessage}
@@ -67,7 +67,7 @@ function ShortlyLinkShortenerApp() {
           linkCount={links.length}
         />
         <Links links={links} onCopyLink={onCopyLink} />
-      </div>
+      </section>
       <LandingPageBottom />
       <CallToActionBanner />
       <Footer />

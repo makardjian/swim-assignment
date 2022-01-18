@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme: ShortlyTheme) =>
       margin: '0px auto',
       maxWidth: '1440px',
       minWidth: '700px',
-      overflow: 'hidden',
     },
     textAndButtonContainer: {
       width: '50%',
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme: ShortlyTheme) =>
     mainHeaderText: {
       fontSize: theme.typography.fontSizes.extraLarge,
       fontWeight: theme.typography.fontWeight.bold,
-      letterSpacing: '-3px',
+      letterSpacing: '-2px',
       color: theme.colors.neutral['@veryDarkBlue'],
     },
     subHeaderTextContainer: {
@@ -39,7 +38,6 @@ const useStyles = makeStyles((theme: ShortlyTheme) =>
     image: {
       maxWidth: '100%',
       maxHeight: '100%',
-      objectFit: 'contain',
     },
   })
 );

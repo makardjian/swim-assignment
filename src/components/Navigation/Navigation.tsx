@@ -12,6 +12,7 @@ import Colors from '../../styles/Colors';
 const useStyles = makeStyles({
   navRoot: {
     height: '100px',
+    padding: '0px 100px',
     backgroundColor: Colors.background['@white'],
   },
   navContent: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
     maxWidth: '1440px',
     minWidth: '700px',
     margin: '0px auto',
-    padding: '40px 100px 0px',
+    padding: '40px 0px',
   },
   navSection: {
     display: 'flex',
@@ -34,19 +35,19 @@ const useStyles = makeStyles({
 const BUTTON_TEXT = 'Sign Up';
 
 const Navigation = () => {
-  const classes = useStyles();
+  const styles = useStyles();
   return (
-    <div className={classes.navRoot}>
-      <div className={classes.navContent}>
-        <div className={classes.navSection}>
+    <div className={styles.navRoot}>
+      <div className={styles.navContent}>
+        <div className={styles.navSection}>
           <img
             src={shortlyLogo}
             alt='shortly-logo'
-            className={classes.shortlyLogo}
+            className={styles.shortlyLogo}
           />
           <NavigationOptions options={leftSideNavOptions} />
         </div>
-        <div className={classes.navSection}>
+        <div className={styles.navSection}>
           <NavigationOptions options={rightSideNavOptions} />
           <Button text={BUTTON_TEXT} />
         </div>

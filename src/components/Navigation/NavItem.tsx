@@ -15,8 +15,8 @@ const useStyles = makeStyles({
 });
 
 const NavItem = ({ text }: { text: string }) => {
-  const classes = useStyles();
-  return <div className={classes.item}>{text}</div>;
+  const styles = useStyles();
+  return <div className={styles.item}>{text}</div>;
 };
 
 export default NavItem;
