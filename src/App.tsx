@@ -15,8 +15,8 @@ import useStyles from './App.styles';
 import {
   EMPTY_INPUT_ERROR_MSG,
   INVALID_URL_ERROR_MSG,
-} from './static/errorMessages.constants';
-import { MOCK_LINKS } from './static/mockData';
+} from './constants/errorMessages.constants';
+import { MOCK_LINKS } from './constants/mockData';
 
 function ShortlyLinkShortenerApp() {
   const styles = useStyles();
