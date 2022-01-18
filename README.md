@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# Shortly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A lightweight application that allows you to shorten links with one click of a button.
 
-## Available Scripts
+## Instructions for running the application
 
-In the project directory, you can run:
+Navigate to the root of the project directory and run the following commands:
+
+### `yarn install`
+
+Wait for packages to be installed...
 
 ### `yarn start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload if you make edits.
 
-### `yarn test`
+Once the app is running in the browser, paste any Web URL into the Input Field. To generate a shortened link from the URL, click the `Shorten It!` button, or push the `Enter` key.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Notice that when the page loads, three static links always appear in order to demonstrate the user interface. 
 
-### `yarn build`
+## Possibilities for the Future
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If I had more time, I would continue developing the application in the following order:
+1. Spend time to make sure that the application works flawlessly across devices of all sizes. As the application stands now, the UX is poor when the width of the screen is less than 1000px.
+2. Implement a way for the data to persist once the user reloads the page. I could achieve this either by using the browser's local storage sytem, or by implementing a SQL database using a tool like Prisma. Alongside this feature, I would make sure the user had the ability to clean their list of links by deleting old, unwanted links.
+3. Create a pagination container for the links such that if the user were to have more than ten links, the links would auto-paginatie in ten-link increments.
+4. Rather than implementing a traditional username / passsword authentication layer, I would explore making Shortly a Web3 application that allows a user to access their previously generated links by connecting the application to their Metamask wallet.
+5. Write a series of unit tests to provide a reasonable amount of test coverage for the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frameworks Used
 
-### `yarn eject`
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Author Information
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Developer:** Michael Kardjian\
+**Date Sumbmitted:** January 17, 2022
