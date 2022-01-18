@@ -23,7 +23,7 @@ Notice that when the page loads, three static links always appear in order to de
 
 ## Possibilities for the Future
 
-If I had more time, I would choose to continue developing this application in the following order:
+If I had more time, I would continue developing the application in the following order:
 1. I would spend time to make sure that the application works flawlessly across devices of all sizes. As the application stands now, the UX is poor when the width of the screen is less than 1000px.
 2. I would implement a way for the data to persist upon realoading the page. This could be achieved either by leveraging the browser's local storage, or, the more robust option would be to implement a SQL database using a tool like Prisma.
 3. I would create a pagination container for the links such that if the user has more than 10 links, only ten links would be viewable per page.
