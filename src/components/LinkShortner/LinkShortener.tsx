@@ -47,6 +47,7 @@ const LinkShortener = (props: LinkShortenerProps) => {
     if (linkCount > prevLinkCount) {
       setInputValue('');
     }
+    // eslint-disable-next-line
   }, [linkCount]);
 
   const inputBaseClass = errorMessage
