@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: ShortlyTheme) => {
     },
     featuresContainer: {
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       position: 'relative',
       marginTop: '50px',
       gap: '64px',

@@ -33,7 +33,7 @@ export const fetchShortenedLink = async (
         result: { short_link, original_link },
       } = responseData;
       return {
-        shortLink: short_link,
+        shortLink: `https://${short_link}`,
         originalLink: original_link,
         id: uuid(),
       };
