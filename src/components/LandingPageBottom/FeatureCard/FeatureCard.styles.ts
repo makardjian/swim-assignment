@@ -5,6 +5,9 @@ import type { FeatureCardProps } from './FeatureCard';
 const useStyles = makeStyles((theme: ShortlyTheme) => {
   const { colors, typography } = theme;
   return createStyles({
+    cardContainer: (props: FeatureCardProps) => ({
+      marginTop: props.feature.marginTop,
+    }),
     iconBall: {
       marginLeft: '32px',
       display: 'grid',
@@ -19,9 +22,10 @@ const useStyles = makeStyles((theme: ShortlyTheme) => {
       height: '45%',
       width: '45%',
     },
-    cardContainer: (props: FeatureCardProps) => ({
-      marginTop: props.feature.marginTop,
-    }),
+    card: {
+      width: '300px',
+      marginTop: '-40px',
+    },
     textContent: {
       margin: '30px',
       paddingTop: '30px',
