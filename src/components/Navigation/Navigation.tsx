@@ -35,19 +35,19 @@ const useStyles = makeStyles({
 const BUTTON_TEXT = 'Sign Up';
 
 const Navigation = () => {
-  const classes = useStyles();
+  const styles = useStyles();
   return (
-    <div className={classes.navRoot}>
-      <div className={classes.navContent}>
-        <div className={classes.navSection}>
+    <div className={styles.navRoot}>
+      <div className={styles.navContent}>
+        <div className={styles.navSection}>
           <img
             src={shortlyLogo}
             alt='shortly-logo'
-            className={classes.shortlyLogo}
+            className={styles.shortlyLogo}
           />
           <NavigationOptions options={leftSideNavOptions} />
         </div>
-        <div className={classes.navSection}>
+        <div className={styles.navSection}>
           <NavigationOptions options={rightSideNavOptions} />
           <Button text={BUTTON_TEXT} />
         </div>

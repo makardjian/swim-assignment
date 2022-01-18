@@ -9,24 +9,24 @@ import {
 } from './LandingPageTop.constants';
 
 const LandingPageTop = () => {
-  const classes = useStyles();
+  const styles = useStyles();
   return (
-    <section className={classes.container}>
-      <div className={classes.contentContainer}>
-        <div className={classes.textAndButtonContainer}>
-          <div className={classes.mainHeaderText}>{MAIN_HEADER_TEXT}</div>
-          <div className={classes.subHeaderTextContainer}>
-            <div className={classes.subHeaderText}>{SUB_HEADER_TEXT}</div>
+    <section className={styles.container}>
+      <div className={styles.contentContainer}>
+        <div className={styles.textAndButtonContainer}>
+          <div className={styles.mainHeaderText}>{MAIN_HEADER_TEXT}</div>
+          <div className={styles.subHeaderTextContainer}>
+            <div className={styles.subHeaderText}>{SUB_HEADER_TEXT}</div>
           </div>
-          <div className={classes.buttonContainer}>
+          <div className={styles.buttonContainer}>
             <Button text={BUTTON_TEXT} size='large' />
           </div>
         </div>
-        <div className={classes.imageContainer}>
+        <div className={styles.imageContainer}>
           <img
             src={illustrationWorking}
             alt='illustrationworking'
-            className={classes.image}
+            className={styles.image}
           />
         </div>
       </div>
