@@ -21,17 +21,17 @@ const Link = ({ link, onCopyLink }: LinkProps) => {
 
   return (
     <div className={styles.fullLinkContainer}>
-      <a className={styles.originalLink} href={link.originalLink}>
-        {link.originalLink}
+      <a className={styles.originalLink} href={link?.originalLink}>
+        {link?.originalLink}
       </a>
       <div className={styles.shortLinkAndButtonContainer}>
-        <a className={styles.shortLink} href={link.shortLink}>
-          {link.shortLink}
+        <a className={styles.shortLink} href={link?.shortLink}>
+          {link?.shortLink}
         </a>
         <div className={styles.buttonContainer}>
           <CopyToClipboard
-            text={link.shortLink}
-            onCopy={() => onCopyLink(link.id)}
+            text={link?.shortLink}
+            onCopy={() => onCopyLink(link?.id)}
           >
             <Button
               text={`${linkIsCopied ? 'Copied!' : 'Copy'}`}

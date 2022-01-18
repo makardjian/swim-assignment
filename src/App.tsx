@@ -50,11 +50,6 @@ function ShortlyLinkShortenerApp() {
     setLinks(newLinks);
   };
 
-  console.log({
-    links,
-    linkShortenerErrorMessage,
-  });
-
   return (
     <div className={styles.appRoot}>
       <Navigation />
