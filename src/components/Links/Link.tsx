@@ -17,7 +17,7 @@ const Link = ({ link, onCopyLink }: LinkProps) => {
     colors: { primary },
   } = useTheme() as ShortlyTheme;
 
-  const linkIsCopied = link?.isCopied;
+  const linkIsCopied = link.isCopied;
 
   return (
     <div className={styles.fullLinkContainer}>

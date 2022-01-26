@@ -31,7 +31,7 @@ const Button = ({
       sx={{
         whiteSpace: 'nowrap',
         margin: '0px auto',
-        padding: `${shapeIsSquare ? '15px 35px' : 'inheret'}`,
+        padding: `${shapeIsSquare ? '15px 35px' : undefined}`,
         borderRadius: `${shapeIsSquare ? '10px' : '20px'}`,
         fontWeight: typography.fontWeight.bold,
         textTransform: 'capitalize',
