@@ -15,6 +15,7 @@ import useStyles from './App.styles';
 import {
   EMPTY_INPUT_ERROR_MSG,
   INVALID_URL_ERROR_MSG,
+  DUPLICATE_LINK_ERROR_MSG,
 } from './constants/errorMessages.constants';
 import { MOCK_LINKS } from './constants/mockData';
 
@@ -27,6 +28,13 @@ function ShortlyLinkShortenerApp() {
   const generateShortenedLink = async (originalUrl: string) => {
     if (!originalUrl) {
       setLinkShortenerErrorMessage(EMPTY_INPUT_ERROR_MSG);
+      return;
+    }
+    const originalLinkIsADuplicate = links.find(
+      (link: Link) => link.originalLink === originalUrl
+    );
+    if (originalLinkIsADuplicate) {
+      setLinkShortenerErrorMessage(DUPLICATE_LINK_ERROR_MSG);
       return;
     }
     const rawLink: Link = await fetchShortenedLink(originalUrl);

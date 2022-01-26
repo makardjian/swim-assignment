@@ -10,6 +10,7 @@ const useStyles = makeStyles(({ colors }: ShortlyTheme) =>
       maxWidth: '1440px',
       width: '100%',
       minWidth: '900px',
+      minHeight: '180px',
       position: 'relative',
       borderRadius: '10px',
     },
@@ -24,14 +25,13 @@ const useStyles = makeStyles(({ colors }: ShortlyTheme) =>
     contentFlexContainer: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
-      height: '100%',
-      padding: '0px 50px',
+      justifyContent: 'space-between',
+      height: '40%',
+      padding: '55px 50px',
     },
     inputAndButtonContainer: {
       display: 'flex',
       justifyContent: 'space-around',
-      alignItems: 'center',
     },
     inputBase: {
       backgroundColor: colors.background['@white'],
@@ -44,7 +44,6 @@ const useStyles = makeStyles(({ colors }: ShortlyTheme) =>
       color: colors.secondary['@red'],
       fontStyle: 'italic',
       marginLeft: '10px',
-      marginTop: '-5px',
     },
   })
 );

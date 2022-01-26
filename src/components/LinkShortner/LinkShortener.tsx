@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  MutableRefObject,
+  KeyboardEvent,
+} from 'react';
 import { cx, css } from '@emotion/css';
 import { Card, CardMedia, Box, InputBase } from '@mui/material';
 import { useTheme } from '@material-ui/core/styles';
-import { usePrevious } from '../../hooks/usePrevious';
 import Button from '../common/Button';
 import useStyles from './LinkShortener.styles';
 import type { ShortlyTheme } from '../../styles/Theme';
@@ -21,7 +26,7 @@ const ENTER_KEY = 'Enter';
 const LinkShortener = (props: LinkShortenerProps) => {
   const { generateShortenedLink, errorMessage, clearErrorMessage, linkCount } =
     props;
-  const prevLinkCount: number = usePrevious(linkCount);
+  const ref: MutableRefObject<number> = useRef<number>(linkCount);
   const styles = useStyles();
   const { colors } = useTheme() as ShortlyTheme;
   const [inputValue, setInputValue] = useState('');
@@ -34,7 +39,7 @@ const LinkShortener = (props: LinkShortenerProps) => {
   };
 
   const onGenerateShortenedLink = () => {
-    generateShortenedLink(inputValue);
+    generateShortenedLink(inputValue.trim());
   };
 
   const onKeyPress = (event: KeyboardEvent) => {
@@ -44,10 +49,10 @@ const LinkShortener = (props: LinkShortenerProps) => {
   };
 
   useEffect(() => {
-    if (linkCount > prevLinkCount) {
+    if (linkCount > ref.current) {
       setInputValue('');
+      ref.current = linkCount;
     }
-    // eslint-disable-next-line
   }, [linkCount]);
 
   const inputBaseClass = errorMessage
@@ -74,8 +79,7 @@ const LinkShortener = (props: LinkShortenerProps) => {
                 value={inputValue}
                 onChange={(e) => onInputChange(e?.target?.value)}
                 error={errorMessage.length ? true : false}
-                // @ts-expect-error
-                onKeyPress={(e) => onKeyPress(e)}
+                onKeyPress={(e: KeyboardEvent) => onKeyPress(e)}
               />
               <Button
                 text={BUTTON_TEXT}
@@ -86,7 +90,7 @@ const LinkShortener = (props: LinkShortenerProps) => {
               />
             </div>
             {errorMessage && (
-              <span className={styles.emptyInputError}>{errorMessage}</span>
+              <div className={styles.emptyInputError}>{errorMessage}</div>
             )}
           </div>
         </Box>
